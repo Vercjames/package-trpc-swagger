@@ -1,0 +1,33 @@
+{
+  "name": "with-nextjs",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@trpc/server": "^10.45.2",
+    "jsonwebtoken": "^9.0.2",
+    "next": "^14.1.4",
+    "nextjs-cors": "^2.2.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "swagger-ui-react": "^4.19.1",
+    "uuid": "^9.0.1",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.6",
+    "@types/node": "^20.12.2",
+    "@types/react": "^18.2.73",
+    "@types/react-dom": "^18.2.23",
+    "@types/swagger-ui-react": "^4.18.3",
+    "@types/uuid": "^9.0.8",
+    "eslint": "^8.57.0",
+    "eslint-config-next": "^14.1.4",
+    "typescript": "^5.4.3"
+  }
+}

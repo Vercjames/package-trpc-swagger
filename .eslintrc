@@ -1,0 +1,78 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:@typescript-eslint/recommended-requiring-type-checking",
+    "plugin:promise/recommended",
+    "airbnb"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": { "jsx": false },
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "project": "./tsconfig.eslint.json"
+  },
+  "env": {
+    "node": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx", ".json"]
+      }
+    }
+  },
+  "rules": {
+    "no-var": "error",
+    "no-tabs": "error",
+    "comma-spacing": "error",
+    "no-multi-spaces": "error",
+    "space-before-blocks": "error",
+    "semi": ["error", "never"],
+    "quotes": ["error", "double"],
+    "comma-dangle": ["error", "never"],
+    "indent": ["error", 2, {"SwitchCase": 1}],
+    "object-curly-spacing": ["error", "always"],
+    "arrow-spacing": ["error", { "before": true, "after": true }],
+    "keyword-spacing": ["error", { "before": true, "after": true }],
+    "no-multiple-empty-lines": ["error", { "max": 1, "maxEOF": 1, "maxBOF": 0 }],
+    "@typescript-eslint/no-misused-promises": ["error", { "checksVoidReturn": false }],
+    "@typescript-eslint/no-unsafe-return": "off",// VERC: changed warn -> off,
+    "@typescript-eslint/no-unsafe-argument": "off",// VERC: changed warn -> off,
+    "@typescript-eslint/no-unsafe-assignment": "off",  // VERC: changed warn -> off,
+    "@typescript-eslint/no-non-null-assertion": "off", /// VERC: changed warn -> off,
+    "@typescript-eslint/no-unsafe-member-access": "off", // VERC: changed warn -> off,
+    "@typescript-eslint/no-redundant-type-constituents": "off",
+    "@typescript-eslint/ban-ts-comment": "off", // VERC: Added to pass legacy build intigrations,
+    "@typescript-eslint/no-explicit-any": "off",// VERC: Added to pass legacy build intigrations,
+    "@typescript-eslint/no-unsafe-call": "off", // VERC: Added to pass legacy build intigrations,
+    "@typescript-eslint/no-unused-vars": "off", // VERC: Added to pass legacy build intigrations,
+    "@typescript-eslint/ban-types": "off", // VERC: Added to pass legacy build intigrations,
+    "import/prefer-default-export": "off",
+    "lines-around-directive": "off",
+    "no-use-before-define": "off",
+    "no-underscore-dangle": "off",
+    "no-restricted-syntax": "off",
+    "object-curly-newline": "off",
+    "default-param-last": "off",
+    "import/extensions": "off",
+    "arrow-body-style": "off",
+    "linebreak-style": "off",
+    "no-unused-vars": "off",
+    "default-case": "off",
+    "no-console": "off",
+    "max-len": "off"
+  },
+  "overrides": [
+    {
+      "files": ["tests/**/*"],
+      "env": {
+        "jest": true
+      }
+    }
+  ]
+}

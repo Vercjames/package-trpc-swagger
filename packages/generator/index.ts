@@ -1,0 +1,60 @@
+import { OpenAPIV3 } from "openapi-types"
+
+// Application Sectional || Define Imports
+// =================================================================================================
+// =================================================================================================
+import { OpenApiRouter } from "../types"
+import { getOpenApiPathsObject } from "./paths"
+import { errorResponseObject } from "./schema"
+
+export const openApiVersion = "3.0.3"
+
+// Application Sectional || Define Export Type
+// =================================================================================================
+// =================================================================================================
+export type GenerateOpenApiDocumentOptions = {
+  title: string;
+  description?: string;
+  version: string;
+  baseUrl: string;
+  docsUrl?: string;
+  tags?: string[];
+  securitySchemes?: OpenAPIV3.ComponentsObject["securitySchemes"];
+};
+
+// Application Sectional || Define Export Handler
+// =================================================================================================
+// =================================================================================================
+export const generateOpenApiDocument = (
+  appRouter: OpenApiRouter,
+  opts: GenerateOpenApiDocumentOptions
+): OpenAPIV3.Document => {
+  const securitySchemes = opts.securitySchemes || {
+    Authorization: {
+      type: "http",
+      scheme: "bearer"
+    }
+  }
+  return {
+    openapi: openApiVersion,
+    info: {
+      title: opts.title,
+      description: opts.description,
+      version: opts.version
+    },
+    servers: [
+      {
+        url: opts.baseUrl
+      }
+    ],
+    paths: getOpenApiPathsObject(appRouter, Object.keys(securitySchemes)),
+    components: {
+      securitySchemes,
+      responses: {
+        error: errorResponseObject
+      }
+    },
+    tags: opts.tags?.map((tag) => ({ name: tag })),
+    externalDocs: opts.docsUrl ? { url: opts.docsUrl } : undefined
+  }
+}
