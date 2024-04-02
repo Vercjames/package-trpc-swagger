@@ -8,6 +8,6 @@ export const openApiDocument = generateOpenApiDocument(appRouter, {
   description: "OpenAPI compliant REST API built using tRPC with Express",
   version: "1.0.0",
   baseUrl: "http://localhost:3000/api",
-  docsUrl: "https://github.com/vercjames/trpc-swagger",
+  docsUrl: "https://github.com/vercjames/package-trpc-swagger",
   tags: ["auth", "users", "posts"]
 })

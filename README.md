@@ -106,7 +106,7 @@ export const openApiDocument = generateOpenApiDocument(appRouter, {
   title: 'tRPC Swagger',
   version: '1.0.0', // consider making this pull version from package.json
   baseUrl: 'http://localhost:3000', // consider making this dynamic
-  docsUrl: "https://github.com/vercjames/trpc-swagger",
+  docsUrl: "https://github.com/vercjames/package-trpc-swagger",
   tags: ["tag1", "tag2", "tag3", "posts"],
 })
 ```
