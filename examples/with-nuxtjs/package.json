@@ -17,7 +17,7 @@
     "zod": "^3.22.4"
   },
   "devDependencies": {
-    "@types/node": "^20.12.2",
+    "@types/node": "^20.12.3",
     "nuxt": "^3.5.1"
   }
 }
