@@ -15,7 +15,7 @@
     "nextjs-cors": "^2.2.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "swagger-ui-react": "^4.19.1",
+    "swagger-ui-react": "^5.17.9",
     "uuid": "^9.0.1",
     "zod": "^3.22.4"
   },
