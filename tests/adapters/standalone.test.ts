@@ -1,10 +1,12 @@
-import { createTRPCProxyClient, httpBatchLink } from "@trpc/client"
-import { TRPCError, initTRPC } from "@trpc/server"
-import { createHTTPHandler } from "@trpc/server/adapters/standalone"
-import { Server } from "http"
 import fetch from "node-fetch"
+import { jest } from "@jest/globals"
+import { TRPCError, initTRPC } from "@trpc/server"
+import { createTRPCProxyClient, httpBatchLink } from "@trpc/client"
+import { createHTTPHandler } from "@trpc/server/adapters/standalone"
 import superjson from "superjson"
+import { Server } from "http"
 import { z } from "zod"
+
 // Application Sectional || Define Imports
 // =================================================================================================
 // =================================================================================================
@@ -1197,7 +1199,7 @@ describe("standalone adapter", () => {
     // only applies when zod does not support (below version v3.20.0)
 
     // @ts-expect-error - hack to disable zodSupportsCoerce
-    // eslint-disable-next-line import/namespace
+    // eslint-disable-next-line
     zodUtils.zodSupportsCoerce = false
     {
       const appRouter = t.router({
@@ -1231,7 +1233,7 @@ describe("standalone adapter", () => {
       close()
     }
     // @ts-expect-error - hack to re-enable zodSupportsCoerce
-    // eslint-disable-next-line import/namespace
+    // eslint-disable-next-line
     zodUtils.zodSupportsCoerce = true
   })
 

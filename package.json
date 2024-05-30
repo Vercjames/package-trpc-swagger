@@ -1,29 +1,25 @@
 {
   "name": "trpc-swagger",
-  "private": false,
   "license": "MIT",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "tRPC Swagger Wrapper",
+  "keywords": ["trpc", "openapi", "swagger"],
   "author": "https://github.com/vercjames",
   "homepage": "https://github.com/vercjames/package-trpc-swagger",
   "bugs": "https://github.com/vercjames/package-trpc-swagger/issues",
-  "keywords": [
-    "trpc",
-    "openapi",
-    "swagger"
-  ],
-  "typings": "build/index.d.ts",
   "main": "build/index.js",
+  "types": "build/index.d.ts",
+  "private": false,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vercjames/package-trpc-swagger.git"
   },
   "scripts": {
-    "test": "tsc --noEmit && jest --verbose",
-    "build": "rimraf build && tsc -p tsconfig.build.json",
+    "build": "tsup --format cjs,esm --dts",
+    "prepublishOnly": "tsx prepublish.ts",
     "format": "eslint --fix \"./packages/**/*.{js,jsx,ts,tsx}\"",
-    "lint:fix": "eslint --fix \"./packages/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "eslint \"./packages/**/*.{js,jsx,ts,tsx}\""
+    "lint": "eslint \"./packages/**/*.{js,jsx,ts,tsx}\"",
+    "test": "node --experimental-modules --experimental-vm-modules node_modules/.bin/jest --config jest.config.ts"
   },
   "workspaces": [
     ".",
@@ -36,12 +32,13 @@
     "examples/with-serverless"
   ],
   "peerDependencies": {
+    "@trpc/client": "^10.45.2",
     "@trpc/server": "^10.45.2",
     "zod": "^3.14.4"
   },
   "dependencies": {
+    "chalk-scripts": "^1.2.6",
     "co-body": "^6.1.0",
-    "h3": "^1.11.1",
     "lodash.clonedeep": "^4.5.0",
     "node-mocks-http": "^1.14.1",
     "openapi-types": "^12.1.3",
@@ -75,12 +72,22 @@
     "next": "^14.2.3",
     "node-fetch": "^2.7.0",
     "openapi-schema-validator": "^12.1.3",
-    "rimraf": "^5.0.7",
     "semver": "^7.6.2",
     "superjson": "^1.13.3",
     "ts-jest": "^29.1.4",
     "ts-node": "^10.9.2",
+    "tsup": "^8.0.2",
+    "tsx": "^4.11.0",
     "typescript": "^5.4.5",
     "zod": "^3.23.8"
+  },
+  "tsup": {
+    "entry": [
+      "packages/index.ts"
+    ],
+    "outDir": "build",
+    "splitting": true,
+    "sourcemap": true,
+    "clean": true
   }
 }

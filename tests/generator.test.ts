@@ -1,6 +1,6 @@
 import { initTRPC } from "@trpc/server"
 import { observable } from "@trpc/server/observable"
-import openAPISchemaValidator from "openapi-schema-validator"
+import OpenAPISchemaValidator from "openapi-schema-validator"
 import { z } from "zod"
 
 import {
@@ -12,8 +12,7 @@ import {
 import * as zodUtils from "../packages/utils/zod"
 
 // TODO: test for duplicate paths (using getPathRegExp)
-
-const openApiSchemaValidator = new openAPISchemaValidator({ version: openApiVersion })
+const openApiSchemaValidator = new OpenAPISchemaValidator({ version: openApiVersion })
 
 const t = initTRPC.meta<OpenApiMeta>().context<any>().create()
 
@@ -282,7 +281,7 @@ describe("generator", () => {
     }
 
     // @ts-expect-error - hack to re-enable zodSupportsCoerce
-    // eslint-disable-next-line import/namespace
+    // eslint-disable-next-line
     zodUtils.zodSupportsCoerce = true
   })
 

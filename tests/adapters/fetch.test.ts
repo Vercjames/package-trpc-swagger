@@ -1,6 +1,7 @@
-import { TRPCError, initTRPC } from "@trpc/server"
 import fetch from "node-fetch"
 import superjson from "superjson"
+import { jest } from "@jest/globals"
+import { TRPCError, initTRPC } from "@trpc/server"
 import { z } from "zod"
 
 // Application Sectional || Define Imports
@@ -1190,7 +1191,7 @@ describe("fetch adapter", () => {
       expect(onErrorMock).toHaveBeenCalledTimes(0)
     }
     // @ts-expect-error - hack to re-enable zodSupportsCoerce
-    // eslint-disable-next-line import/namespace
+    // eslint-disable-next-line
     zodUtils.zodSupportsCoerce = true
   })
 
