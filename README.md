@@ -36,6 +36,7 @@ yarn workspace with-[WORKSPACE_NAME] run dev
 Ergo
 ```yaml
 yarn workspace with-nextjs-app run dev
+yarn workspace with-nextjs-app run build
 ```
 
 ## Usage
@@ -139,7 +140,7 @@ const body = await res.json() /* { greeting: 'Hello Verc!' } */
 **Peer dependencies**
 
 Your application requires these 2 packages installed
-- [`tRPC`](https://github.com/trpc/trpc) Server v11 (`@trpc/server`) must be installed.
+- [`tRPC`](https://github.com/trpc/trpc) Server v110 (`@trpc/server`) must be installed.
 - [`Zod`](https://github.com/colinhacks/zod) v3 (`zod@^3.14.4`) must be installed (recommended `^3.20.0`).
 
 
