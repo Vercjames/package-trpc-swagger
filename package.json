@@ -1,7 +1,7 @@
 {
   "name": "trpc-swagger",
   "license": "MIT",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "description": "tRPC Swagger Wrapper",
   "author": "https://github.com/vercjames",
   "homepage": "https://github.com/vercjames/package-trpc-swagger",
@@ -15,7 +15,7 @@
   },
   "scripts": {
     "build": "tsup --format cjs,esm --dts",
-    "prepublishOnly": "tsx prepublish.ts",
+    "prepublishOnly": "rimraf build && yarn build",
     "format": "eslint --fix \"./packages/**/*.{js,jsx,ts,tsx}\"",
     "lint": "eslint \"./packages/**/*.{js,jsx,ts,tsx}\"",
     "test": "node --experimental-modules --experimental-vm-modules node_modules/.bin/jest --config jest.config.ts"
@@ -36,7 +36,7 @@
     "zod": "^3.14.4"
   },
   "dependencies": {
-    "chalk-scripts": "^1.2.6",
+    "chalk-scripts": "^1.2.8",
     "co-body": "^6.1.0",
     "lodash.clonedeep": "^4.5.0",
     "node-mocks-http": "^1.14.1",
