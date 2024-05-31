@@ -3,7 +3,6 @@
   "license": "MIT",
   "version": "1.2.5",
   "description": "tRPC Swagger Wrapper",
-  "keywords": ["trpc", "openapi", "swagger"],
   "author": "https://github.com/vercjames",
   "homepage": "https://github.com/vercjames/package-trpc-swagger",
   "bugs": "https://github.com/vercjames/package-trpc-swagger/issues",
