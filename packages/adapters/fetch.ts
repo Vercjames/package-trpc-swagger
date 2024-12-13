@@ -13,7 +13,12 @@ import { CreateOpenApiNodeHttpHandlerOptions, createOpenApiNodeHttpHandler } fro
 // =================================================================================================
 export type CreateOpenApiFetchHandlerOptions<TRouter extends OpenApiRouter> = Omit<FetchHandlerOptions<TRouter>, "batching"> & {
   req: Request;
-  endpoint: `/${string}`;
+  endpoint: `/${string}`
+  cors?: {
+    origin: string
+    methods?: string[]
+    headers?: string[]
+  }
 };
 
 // Application Sectional || Define Helper Functions
@@ -105,6 +110,13 @@ export const createOpenApiFetchHandler = async <TRouter extends OpenApiRouter>(
   const resHeaders = new Headers()
   const url = new URL(opts.req.url.replace(opts.endpoint, ""))
   const req: Request = await createRequestProxy(opts.req, url.toString())
+
+  if (opts.cors) {
+    const { origin, methods, headers } = opts.cors
+    resHeaders.set("Access-Control-Allow-Origin", origin)
+    if (methods) resHeaders.set("Access-Control-Allow-Methods", methods.join(", "))
+    if (headers) resHeaders.set("Access-Control-Allow-Headers", headers.join(", "))
+  }
 
   const createContext = () => {
     if (opts.createContext) {
