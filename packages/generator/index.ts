@@ -1,5 +1,4 @@
 import { OpenAPIV3 } from "openapi-types"
-
 // Application Sectional || Define Imports
 // =================================================================================================
 // =================================================================================================
@@ -12,14 +11,35 @@ export const openApiVersion = "3.0.3"
 // Application Sectional || Define Export Type
 // =================================================================================================
 // =================================================================================================
+export type OpenApiTag = {
+  name: string;
+  description?: string;
+  externalDocs?: {
+    description?: string;
+    url: string;
+  };
+};
+
 export type GenerateOpenApiDocumentOptions = {
   title: string;
   description?: string;
   version: string;
   baseUrl: string;
   docsUrl?: string;
-  tags?: string[];
+  termsURL?: string;
+  tags?: (string | OpenApiTag)[];
   securitySchemes?: OpenAPIV3.ComponentsObject["securitySchemes"];
+  contact?: {
+    email: string;
+  };
+  license?: {
+    name: string;
+    url: string;
+  };
+  externalDocs?: {
+    description: string;
+    url: string;
+  };
 };
 
 // Application Sectional || Define Export Handler
@@ -35,12 +55,21 @@ export const generateOpenApiDocument = (
       scheme: "bearer"
     }
   }
+
   return {
     openapi: openApiVersion,
     info: {
       title: opts.title,
       description: opts.description,
-      version: opts.version
+      version: opts.version,
+      termsOfService: opts.termsURL,
+      contact: opts.contact ? { email: opts.contact.email } : undefined,
+      license: opts.license
+        ? {
+          name: opts.license.name,
+          url: opts.license.url
+        }
+        : undefined
     },
     servers: [
       {
@@ -54,7 +83,26 @@ export const generateOpenApiDocument = (
         error: errorResponseObject
       }
     },
-    tags: opts.tags?.map((tag) => ({ name: tag })),
-    externalDocs: opts.docsUrl ? { url: opts.docsUrl } : undefined
+    tags: opts.tags?.map((tag) => (typeof tag === "string"
+      ? { name: tag } // Legacy support for string[]
+      : {
+        name: tag.name,
+        description: tag.description,
+        externalDocs: tag.externalDocs
+          ? {
+            description: tag.externalDocs.description,
+            url: tag.externalDocs.url
+          }
+          : undefined
+      })),
+    // eslint-disable-next-line no-nested-ternary
+    externalDocs: opts.externalDocs
+      ? {
+        description: opts.externalDocs.description,
+        url: opts.externalDocs.url
+      }
+      : opts.docsUrl
+        ? { url: opts.docsUrl }
+        : undefined
   }
 }
