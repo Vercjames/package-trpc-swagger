@@ -94,7 +94,10 @@ describe("generator", () => {
           "url": "http://localhost:3000/docs",
         },
         "info": Object {
+          "contact": undefined,
           "description": "API documentation",
+          "license": undefined,
+          "termsOfService": undefined,
           "title": "tRPC OpenAPI",
           "version": "1.0.0",
         },
@@ -519,7 +522,10 @@ describe("generator", () => {
         },
         "externalDocs": undefined,
         "info": Object {
+          "contact": undefined,
           "description": undefined,
+          "license": undefined,
+          "termsOfService": undefined,
           "title": "tRPC OpenAPI",
           "version": "1.0.0",
         },
