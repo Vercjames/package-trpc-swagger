@@ -5,6 +5,7 @@ import type { Context as APIGWContext } from "aws-lambda"
 import { EventEmitter } from "events"
 import type { RequestMethod } from "node-mocks-http"
 import { createRequest, createResponse } from "node-mocks-http"
+import { getErrorShape } from "@trpc/server/shared"
 
 // Application Sectional || Define Imports
 // =================================================================================================
@@ -142,7 +143,8 @@ export const createOpenApiAwsLambdaHandler = <TRouter extends OpenApiRouter, TEv
         errors: [error]
       })
 
-      const errorShape = opts.router.getErrorShape({
+      const errorShape = getErrorShape({
+        config: opts.router._def._config,
         error,
         type: "unknown",
         path,

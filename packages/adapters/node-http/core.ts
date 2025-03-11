@@ -6,6 +6,7 @@ import {
 } from "@trpc/server/dist/adapters/node-http"
 import cloneDeep from "lodash.clonedeep"
 import { ZodError, z } from "zod"
+import { getErrorShape } from "@trpc/server/shared"
 
 import { generateOpenApiDocument } from "../../generator"
 import {
@@ -29,6 +30,7 @@ import { TRPC_ERROR_CODE_HTTP_STATUS, getErrorFromUnknown } from "./errors"
 import { getBody, getQuery } from "./input"
 import { createProcedureCache } from "./procedures"
 
+
 export type CreateOpenApiNodeHttpHandlerOptions<
   TRouter extends OpenApiRouter,
   TRequest extends NodeHTTPRequest,
@@ -45,8 +47,8 @@ export const createOpenApiNodeHttpHandler = <
   TRequest extends NodeHTTPRequest,
   TResponse extends NodeHTTPResponse,
 >(
-    opts: CreateOpenApiNodeHttpHandlerOptions<TRouter, TRequest, TResponse>
-  ) => {
+  opts: CreateOpenApiNodeHttpHandlerOptions<TRouter, TRequest, TResponse>
+) => {
   const router = cloneDeep(opts.router)
 
   // Validate router
@@ -166,8 +168,8 @@ export const createOpenApiNodeHttpHandler = <
         errors: [error]
       })
 
-      // VERC: Catalog Change - @trpc/server v11.0.0-next-beta.318
-      const errorShape = router.getErrorShape({
+      const errorShape = getErrorShape({
+        config: router._def._config,
         error,
         type: procedure?.type ?? "unknown",
         path: procedure?.path,
