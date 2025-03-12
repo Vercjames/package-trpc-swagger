@@ -54,7 +54,7 @@ export type OpenApiProcedure<TMeta = TRPCMeta> = Procedure<
 
 export type OpenApiProcedureRecord<TMeta = TRPCMeta> = Record<string, OpenApiProcedure<TMeta>>;
 
-export type OpenApiRouter<TMeta = TRPCMeta> = Router<
+export type OpenApiRouter<TMeta = TRPCMeta> = Omit<Router<
   RouterDef<
     RootConfig<{
       transformer: any;
@@ -65,7 +65,7 @@ export type OpenApiRouter<TMeta = TRPCMeta> = Router<
     any,
     any
   >
->;
+>, "getErrorShape" | "createCaller">
 
 export type OpenApiSuccessResponse<D = any> = D;
 

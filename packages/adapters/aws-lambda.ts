@@ -1,5 +1,5 @@
 import { TRPCError } from "@trpc/server"
-import { APIGatewayEvent, AWSLambdaOptions, UNKNOWN_PAYLOAD_FORMAT_VERSION_ERROR_MESSAGE, getHTTPMethod, getPath, isPayloadV1, isPayloadV2, transformHeaders } from "@trpc/server/adapters/aws-lambda"
+import { APIGatewayEvent, AWSLambdaCreateContextFn, AWSLambdaOptions, UNKNOWN_PAYLOAD_FORMAT_VERSION_ERROR_MESSAGE, getHTTPMethod, getPath, isPayloadV1, isPayloadV2, transformHeaders } from "@trpc/server/adapters/aws-lambda"
 import type { NodeHTTPRequest } from "@trpc/server/dist/adapters/node-http"
 import type { Context as APIGWContext } from "aws-lambda"
 import { EventEmitter } from "events"
@@ -10,6 +10,8 @@ import { getErrorShape } from "@trpc/server/shared"
 // Application Sectional || Define Imports
 // =================================================================================================
 // =================================================================================================
+import { ResponseMetaFn } from "@trpc/server/dist/http/internals/types"
+import { OnErrorFunction } from "@trpc/server/dist/internals/types"
 import type { OpenApiErrorResponse, OpenApiRouter } from "../types"
 import { TRPC_ERROR_CODE_HTTP_STATUS, getErrorFromUnknown } from "./node-http/errors"
 import { createOpenApiNodeHttpHandler } from "./node-http/core"
@@ -17,8 +19,31 @@ import { createOpenApiNodeHttpHandler } from "./node-http/core"
 // Application Sectional || Define Export Type
 // =================================================================================================
 // =================================================================================================
+export type AWSHandlerOptionsWrapper<TRouter extends OpenApiRouter, TEvent extends APIGatewayEvent> =
+  | {
+    router: TRouter;
+    batching?: {
+      enabled: boolean;
+    };
+    onError?: OnErrorFunction<TRouter & {
+      getErrorShape: () => any;
+      createCaller: () => any;
+    }, TEvent>;
+    responseMeta?: ResponseMetaFn<TRouter & {
+      getErrorShape: () => any;
+      createCaller: () => any
+    }>;
+  } & (
+    | {
+      createContext?: AWSLambdaCreateContextFn<TRouter & {
+        getErrorShape: () => any;
+        createCaller: () => any;
+      }, TEvent>;
+    }
+  );
+
 export type CreateOpenApiAwsLambdaHandlerOptions<TRouter extends OpenApiRouter, TEvent extends APIGatewayEvent> = Pick<
-  AWSLambdaOptions<TRouter, TEvent>,
+  AWSHandlerOptionsWrapper<TRouter, TEvent>,
   "router" | "createContext" | "responseMeta" | "onError"
 >;
 

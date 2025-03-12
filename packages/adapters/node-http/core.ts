@@ -1,4 +1,4 @@
-import { AnyProcedure, TRPCError } from "@trpc/server"
+import { AnyProcedure, callProcedure, procedureTypes, TRPCError, ProcedureType, Router, AnyRouterDef } from "@trpc/server"
 import {
   NodeHTTPHandlerOptions,
   NodeHTTPRequest,
@@ -6,8 +6,9 @@ import {
 } from "@trpc/server/dist/adapters/node-http"
 import cloneDeep from "lodash.clonedeep"
 import { ZodError, z } from "zod"
-import { getErrorShape } from "@trpc/server/shared"
+import { createRecursiveProxy, getErrorShape } from "@trpc/server/shared"
 
+import { AnyRootConfig, RouterCaller } from "@trpc/server/src"
 import { generateOpenApiDocument } from "../../generator"
 import {
   OpenApiErrorResponse,
@@ -30,17 +31,58 @@ import { TRPC_ERROR_CODE_HTTP_STATUS, getErrorFromUnknown } from "./errors"
 import { getBody, getQuery } from "./input"
 import { createProcedureCache } from "./procedures"
 
-
 export type CreateOpenApiNodeHttpHandlerOptions<
   TRouter extends OpenApiRouter,
   TRequest extends NodeHTTPRequest,
   TResponse extends NodeHTTPResponse,
 > = Pick<
-  NodeHTTPHandlerOptions<TRouter, TRequest, TResponse>,
+  NodeHTTPHandlerOptions<TRouter & {
+    getErrorShape: () => any;
+    createCaller: () => any;
+  }, TRequest, TResponse>,
   "router" | "createContext" | "responseMeta" | "onError" | "maxBodySize"
 >;
 
 export type OpenApiNextFunction = () => void;
+
+/**
+ * Temporary wrapper type for tRPC v11 compatibility
+ */
+function createCallerFactory<TConfig extends AnyRootConfig>() {
+  return function createCallerInner<TRouter extends Router<AnyRouterDef<TConfig>>>(router: TRouter): RouterCaller<TRouter["_def"]> {
+    const def = router._def
+    return function createCaller(ctx) {
+      const proxy = createRecursiveProxy(({ path, args }) => {
+        // interop mode
+        if (path.length === 1 && procedureTypes.includes(path[0] as ProcedureType)) {
+          return callProcedure({
+            procedures: def.procedures,
+            path: args[0] as string,
+            rawInput: args[1],
+            ctx,
+            type: path[0] as ProcedureType
+          })
+        }
+        const fullPath = path.join(".")
+        const procedure = def.procedures[fullPath]
+        let type = "query"
+        if (procedure._def.mutation) {
+          type = "mutation"
+        } else if (procedure._def.subscription) {
+          type = "subscription"
+        }
+        return procedure({
+          path: fullPath,
+          rawInput: args[0],
+          getRawInput: () => args[0],
+          ctx,
+          type
+        })
+      })
+      return proxy as ReturnType<RouterCaller<any>>
+    }
+  }
+}
 
 export const createOpenApiNodeHttpHandler = <
   TRouter extends OpenApiRouter,
@@ -128,7 +170,7 @@ export const createOpenApiNodeHttpHandler = <
       }
 
       ctx = await createContext?.({ req, res })
-      const caller = router.createCaller(ctx)
+      const caller = createCallerFactory()(router)(ctx)
 
       const segments = procedure.path.split(".")
       const procedureFn = segments.reduce((acc, curr) => acc[curr], caller as any) as AnyProcedure
