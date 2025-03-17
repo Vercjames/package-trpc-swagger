@@ -17,20 +17,17 @@ import { CreateOpenApiNodeHttpHandlerOptions, createOpenApiNodeHttpHandler } fro
  * Temporary wrapper type for tRPC v11 compatibility
  */
 export type FetchHandlerOptionsWrapper<T extends OpenApiRouter> = FetchCreateContextOption<T & {
-  getErrorShape: () => any;
-  createCaller: () => any;
+  getErrorShape: (...args: any[]) => any;
+  createCaller: (...args: any[]) => any;
 }> & HTTPBaseHandlerOptions<T & {
-  getErrorShape: () => any;
-  createCaller: () => any;
+  getErrorShape: (...args: any[]) => any;
+  createCaller: (...args: any[]) => any;
 }, Request>;
 
 export type CreateOpenApiFetchHandlerOptions<
   TRouter extends OpenApiRouter
 > = Omit<
-  FetchHandlerOptionsWrapper<TRouter & {
-    getErrorShape: () => any;
-    createCaller: () => any;
-  }>,
+  FetchHandlerOptionsWrapper<TRouter>,
   "batching"
 > & {
   req: Request;

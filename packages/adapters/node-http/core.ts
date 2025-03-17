@@ -37,8 +37,8 @@ export type CreateOpenApiNodeHttpHandlerOptions<
   TResponse extends NodeHTTPResponse,
 > = Pick<
   NodeHTTPHandlerOptions<TRouter & {
-    getErrorShape: () => any;
-    createCaller: () => any;
+    getErrorShape: (...args: any[]) => any;
+    createCaller: (...args: any[]) => any;
   }, TRequest, TResponse>,
   "router" | "createContext" | "responseMeta" | "onError" | "maxBodySize"
 >;

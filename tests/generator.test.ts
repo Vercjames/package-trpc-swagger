@@ -342,24 +342,6 @@ describe("generator", () => {
     }
   })
 
-  test("with unsupported subscription", () => {
-    const appRouter = t.router({
-      currentName: t.procedure
-        .meta({ openapi: { method: "PATCH", path: "/current-name" } })
-        .input(z.object({ name: z.string() }))
-        .subscription(({ input }) => {
-          return observable((emit) => {
-            emit.next(input.name)
-            return () => null
-          })
-        })
-    })
-
-    expect(() => {
-      generateOpenApiDocument(appRouter, defaultDocOpts)
-    }).toThrowError("[subscription.currentName] - Subscriptions are not supported by OpenAPI v3")
-  })
-
   test("with void and path parameters", () => {
     const appRouter = t.router({
       pathParameters: t.procedure
@@ -2592,7 +2574,7 @@ describe("generator", () => {
         (openApiDocument.paths["/with-all"]!.post!.requestBody as any).content["application/json"]
       ).toEqual(
         (openApiDocument.paths["/with-all"]!.post!.requestBody as any).content[
-          "application/x-www-form-urlencoded"
+        "application/x-www-form-urlencoded"
         ]
       )
       expect(

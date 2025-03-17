@@ -26,18 +26,18 @@ export type AWSHandlerOptionsWrapper<TRouter extends OpenApiRouter, TEvent exten
       enabled: boolean;
     };
     onError?: OnErrorFunction<TRouter & {
-      getErrorShape: () => any;
-      createCaller: () => any;
+      getErrorShape: (...args: any[]) => any;
+      createCaller: (...args: any[]) => any;
     }, TEvent>;
     responseMeta?: ResponseMetaFn<TRouter & {
-      getErrorShape: () => any;
-      createCaller: () => any
+      getErrorShape: (...args: any[]) => any;
+      createCaller: (...args: any[]) => any
     }>;
   } & (
     | {
       createContext?: AWSLambdaCreateContextFn<TRouter & {
-        getErrorShape: () => any;
-        createCaller: () => any;
+        getErrorShape: (...args: any[]) => any;
+        createCaller: (...args: any[]) => any;
       }, TEvent>;
     }
   );
