@@ -70,7 +70,7 @@ export const getParameterObjects = (
       return true
     })
     .map((shapeKey) => {
-      let shapeSchema = shape[shapeKey]!
+      let shapeSchema = shape[shapeKey]
       const isShapeRequired = !shapeSchema.isOptional()
       const isPathParameter = pathParameters.includes(shapeKey)
 

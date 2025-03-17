@@ -11,7 +11,7 @@ export const getQuery = (req: NodeHTTPRequest, url: URL): Record<string, string>
       if (!parsedQs[key]) {
         parsedQs[key] = []
       }
-      parsedQs[key]!.push(value)
+      parsedQs[key].push(value)
     })
     req.query = parsedQs
   }
