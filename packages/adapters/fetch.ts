@@ -1,5 +1,5 @@
-import { AnyRouter, TRPCError } from "@trpc/server"
-import { FetchCreateContextOption, FetchHandlerOptions } from "@trpc/server/adapters/fetch"
+import { TRPCError } from "@trpc/server"
+import { FetchCreateContextOption } from "@trpc/server/adapters/fetch"
 import { IncomingMessage, ServerResponse } from "http"
 
 // Application Sectional || Define Imports
