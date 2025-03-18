@@ -8,6 +8,7 @@
   "bugs": "https://github.com/vercjames/package-trpc-swagger/issues",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vercjames/package-trpc-swagger.git"
