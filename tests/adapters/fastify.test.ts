@@ -92,7 +92,13 @@ describe("fastify adapter", () => {
     })
 
     const { url, close } = await createFastifyServerWithRouter(
-      { router: appRouter }
+      {
+        router: appRouter,
+        createContext: undefined,
+        responseMeta: undefined,
+        onError: undefined,
+        maxBodySize: undefined
+      }
     )
 
     {
@@ -147,7 +153,13 @@ describe("fastify adapter", () => {
     })
 
     const { url, close } = await createFastifyServerWithRouter(
-      { router: appRouter },
+      {
+        router: appRouter,
+        createContext: undefined,
+        responseMeta: undefined,
+        onError: undefined,
+        maxBodySize: undefined
+      },
       { serverOpts: { basePath: "/open-api" } }
     )
 
@@ -175,7 +187,13 @@ describe("fastify adapter", () => {
     })
 
     const { url, close } = await createFastifyServerWithRouter(
-      { router: appRouter },
+      {
+        router: appRouter,
+        createContext: undefined,
+        responseMeta: undefined,
+        onError: undefined,
+        maxBodySize: undefined
+      },
       { prefix: "/api-prefix" }
     )
 

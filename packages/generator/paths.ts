@@ -25,10 +25,8 @@ export const getOpenApiPathsObject = (
 
     try {
       if (type === "subscription") {
-        throw new TRPCError({
-          message: "Subscriptions are not supported by OpenAPI v3",
-          code: "INTERNAL_SERVER_ERROR"
-        })
+        console.warn(`[${procedureName}] - Subscriptions are not supported by OpenAPI v3`)
+        return
       }
 
       const { method, protect, summary, description, tags, headers } = openapi

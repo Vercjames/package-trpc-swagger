@@ -1,23 +1,41 @@
 import { TRPCError } from "@trpc/server"
-import { FetchHandlerOptions } from "@trpc/server/adapters/fetch"
+import { FetchCreateContextOption } from "@trpc/server/adapters/fetch"
 import { IncomingMessage, ServerResponse } from "http"
 
 // Application Sectional || Define Imports
 // =================================================================================================
 // =================================================================================================
+import { HTTPBaseHandlerOptions } from "@trpc/server/dist/http"
 import { OpenApiRouter } from "../types"
 import { CreateOpenApiNodeHttpHandlerOptions, createOpenApiNodeHttpHandler } from "./node-http/core"
 
 // Application Sectional || Define Export Type
 // =================================================================================================
 // =================================================================================================
-export type CreateOpenApiFetchHandlerOptions<TRouter extends OpenApiRouter> = Omit<FetchHandlerOptions<TRouter>, "batching"> & {
+
+/**
+ * Temporary wrapper type for tRPC v11 compatibility
+ */
+export type FetchHandlerOptionsWrapper<T extends OpenApiRouter> = FetchCreateContextOption<T & {
+  getErrorShape: (...args: any[]) => any;
+  createCaller: (...args: any[]) => any;
+}> & HTTPBaseHandlerOptions<T & {
+  getErrorShape: (...args: any[]) => any;
+  createCaller: (...args: any[]) => any;
+}, Request>;
+
+export type CreateOpenApiFetchHandlerOptions<
+  TRouter extends OpenApiRouter
+> = Omit<
+  FetchHandlerOptionsWrapper<TRouter>,
+  "batching"
+> & {
   req: Request;
-  endpoint: `/${string}`
+  endpoint: `/${string}`;
   cors?: {
-    origin: string
-    methods?: string[]
-    headers?: string[]
+    origin: string;
+    methods?: string[];
+    headers?: string[];
   }
 };
 

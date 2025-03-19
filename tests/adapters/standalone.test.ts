@@ -45,7 +45,7 @@ const createHttpServerWithRouter = <TRouter extends OpenApiRouter>(
     onError: handlerOpts.onError ?? onErrorMock,
     maxBodySize: handlerOpts.maxBodySize
   } as any)
-  const httpHandler = createHTTPHandler<TRouter>({
+  const httpHandler = createHTTPHandler<TRouter & { createCaller: (...args: any[]) => any; getErrorShape: (...args: any[]) => any }>({
     router: handlerOpts.router,
     createContext: handlerOpts.createContext ?? createContextMock,
     responseMeta: handlerOpts.responseMeta ?? responseMetaMock,
@@ -91,7 +91,11 @@ describe("standalone adapter", () => {
 
     expect(() => {
       createOpenApiHttpHandler({
-        router: appRouter
+        router: appRouter,
+        createContext: undefined,
+        responseMeta: undefined,
+        onError: undefined,
+        maxBodySize: undefined
       })
     }).toThrowError("[query.invalidRoute] - Output parser expects a Zod validator")
   })
@@ -106,7 +110,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/pingg`, { method: "POST" })
@@ -131,7 +139,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/ping`, { method: "PATCH" })
@@ -156,7 +168,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo`, {
@@ -196,7 +212,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo`, {
@@ -237,7 +257,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo`, { method: "GET" })
@@ -274,7 +298,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo`, {
@@ -316,7 +344,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo`, {
@@ -353,7 +385,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     {
@@ -401,7 +437,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     {
@@ -440,7 +480,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/ping?ping=ping`, { method: "GET" })
@@ -475,7 +519,10 @@ describe("standalone adapter", () => {
 
     const { url, close } = createHttpServerWithRouter({
       createContext: (): Context => ({ id: 1234567890 }),
-      router: appRouter
+      router: appRouter,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo?payload=James`, { method: "GET" })
@@ -503,7 +550,10 @@ describe("standalone adapter", () => {
 
     const { url, close } = createHttpServerWithRouter({
       router: appRouter,
-      responseMeta: () => ({ status: 202, headers: { "x-custom": "custom header" } })
+      responseMeta: () => ({ status: 202, headers: { "x-custom": "custom header" } }),
+      createContext: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo?payload=James`, { method: "GET" })
@@ -535,7 +585,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo?payload=James`, { method: "GET" })
@@ -556,7 +610,11 @@ describe("standalone adapter", () => {
     const appRouter = t.router({})
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/any-endpoint`, { method: "HEAD" })
@@ -579,7 +637,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo`, {
@@ -615,7 +677,10 @@ describe("standalone adapter", () => {
 
     const { url, close } = createHttpServerWithRouter({
       router: appRouter,
-      maxBodySize: requestBody.length
+      maxBodySize: requestBody.length,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined
     })
 
     {
@@ -667,7 +732,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     {
@@ -699,7 +768,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     {
@@ -756,7 +829,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     {
@@ -814,7 +891,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/bad-output`, { method: "GET" })
@@ -848,7 +929,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     type AppRouter = typeof appRouter;
@@ -928,7 +1013,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo-delete?payload=James`, { method: "DELETE" })
@@ -953,7 +1042,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo-post`, {
@@ -994,7 +1087,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     {
@@ -1056,7 +1153,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/custom-formatted-error`, { method: "POST" })
@@ -1099,7 +1200,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     {
@@ -1151,7 +1256,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/multi-input?firstName=Verc&lastName=James`, { method: "GET" })
@@ -1180,7 +1289,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/preprocess?value=lol`, { method: "GET" })
@@ -1218,7 +1331,11 @@ describe("standalone adapter", () => {
       })
 
       const { url, close } = createHttpServerWithRouter({
-        router: appRouter
+        router: appRouter,
+        createContext: undefined,
+        responseMeta: undefined,
+        onError: undefined,
+        maxBodySize: undefined
       })
 
       const res = await fetch(`${url}/plus-one?number=9`, { method: "GET" })
@@ -1257,7 +1374,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     {
@@ -1321,7 +1442,11 @@ describe("standalone adapter", () => {
     })
 
     const { url, close } = createHttpServerWithRouter({
-      router: appRouter
+      router: appRouter,
+      createContext: undefined,
+      responseMeta: undefined,
+      onError: undefined,
+      maxBodySize: undefined
     })
 
     const res = await fetch(`${url}/echo`, {
