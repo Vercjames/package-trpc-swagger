@@ -1,4 +1,100 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{}</component>
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1cdc7d8e-31a8-477b-98ec-777f5812dd05" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web/next-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/apps/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/default.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/default.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/edge.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/edge.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/index-browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/index.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/libquery_engine-darwin-arm64.dylib.node" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/edge-esm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/edge.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/index-browser.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/index-browser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/library.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/library.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/react-native.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/wasm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/wasm.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/wasm.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/prisma/schema.prisma" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/src/client.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/src/seed.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/database/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 0
+}]]></component>
+  <component name="ProjectId" id="2udfmdBj2LlEJv9RKFtb7wmFtPe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "trpc-11",
+    "last_opened_file_path": "/Users/vercjames/Forgery/package-trpc-swagger/apps",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "yarn",
+    "ts.external.directory.path": "/Users/vercjames/Forgery/package-trpc-swagger/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/apps" />
+      <recent name="$PROJECT_DIR$" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-d159365566ee-JavaScript-WS-251.23774.114" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1cdc7d8e-31a8-477b-98ec-777f5812dd05" name="Changes" comment="" />
+      <created>1742583531568</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1742583531568</updated>
+      <workItem from="1742583532657" duration="391000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
 </project>
