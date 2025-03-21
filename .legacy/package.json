@@ -1,7 +1,7 @@
 {
   "name": "trpc-swagger",
   "license": "MIT",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "tRPC Swagger Wrapper",
   "author": "https://github.com/vercjames",
   "homepage": "https://github.com/vercjames/package-trpc-swagger",
@@ -14,10 +14,10 @@
     "url": "git+https://github.com/vercjames/package-trpc-swagger.git"
   },
   "scripts": {
-    "build": "tsup --format cjs,esm --dts",
-    "prepublishOnly": "rimraf build && yarn build",
-    "format": "eslint --fix \"./packages/**/*.{js,jsx,ts,tsx}\"",
-    "lint": "eslint \"./packages/**/*.{js,jsx,ts,tsx}\"",
+    "build": "../node_modules/.bin/tsup --format cjs,esm --dts",
+    "prepublishOnly": "../node_modules/.bin/rimraf build && yarn build",
+    "format": "../node_modules/.bin/eslint --fix \"./packages/**/*.{js,jsx,ts,tsx}\"",
+    "lint": "../node_modules/.bin/eslint \"./packages/**/*.{js,jsx,ts,tsx}\"",
     "test": "node --experimental-modules --experimental-vm-modules node_modules/.bin/jest --config jest.config.ts"
   },
   "workspaces": [

@@ -1,5 +1,5 @@
 import { ProcedureType } from "@trpc/server"
-import { AnyZodObject, z } from "zod"
+import { AnyZodObject, z } from "legacy/packages/utils/zod"
 
 // Application Sectional || Define Imports
 // =================================================================================================

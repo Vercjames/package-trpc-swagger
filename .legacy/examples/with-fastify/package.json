@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "ts-node-dev --respawn --transpile-only --exit-child ./src/index.ts"
+    "dev": "ts-node-dev --respawn --transpile-only --exit-child src/index.ts"
   },
   "dependencies": {
     "@fastify/cors": "^8.5.0",

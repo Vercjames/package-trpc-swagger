@@ -4,20 +4,28 @@ import { appRouter, createContext } from "@/server/router"
 // Application Component || Define Handler
 // =================================================================================================
 // =================================================================================================
-const handler = (req: Request) => {
-  // Handle incoming swagger/openapi requests
+const restHandler = (request: Request) => {
+  // Handle incoming REST requests
   return createOpenApiFetchHandler({
-    req,
+    req: request,
     endpoint: "/api",
     router: appRouter,
-    // createContext: () => { return {} },
-    createContext
+    createContext,
+    cors: {
+      origin: "*",
+      methods: ["*"]
+    }
   })
 }
+
 // Application Component || Define Exports
 // =================================================================================================
 // =================================================================================================
 export {
-  handler as GET,
-  handler as POST
+  restHandler as DELETE,
+  restHandler as GET,
+  restHandler as PATCH,
+  restHandler as POST,
+  restHandler as PUT
 }
+
