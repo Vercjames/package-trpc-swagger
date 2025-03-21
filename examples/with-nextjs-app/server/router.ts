@@ -1,6 +1,6 @@
-import { TRPCError, initTRPC } from "@trpc/server"
 import jwt from "jsonwebtoken"
 import { OpenApiMeta } from "trpc-swagger"
+import { TRPCError, initTRPC } from "@trpc/server"
 import { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch"
 import { v4 as uuid } from "uuid"
 import { z } from "zod"
