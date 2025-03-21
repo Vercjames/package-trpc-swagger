@@ -1,6 +1,6 @@
-import { TRPCError, initTRPC } from "@trpc/server"
 import jwt from "jsonwebtoken"
 import { OpenApiMeta } from "trpc-swagger"
+import { TRPCError, initTRPC } from "@trpc/server"
 import { FetchCreateContextFnOptions } from "@trpc/server/adapters/fetch"
 import { v4 as uuid } from "uuid"
 import { z } from "zod"
@@ -30,7 +30,7 @@ export const createContext = async ({ req, resHeaders }: FetchCreateContextFnOpt
   const requestId = uuid()
   resHeaders.set("x-request-id", requestId)
   resHeaders.set("access-control-allow-origin", "*")
-  resHeaders.set("access-control-allow-methods", "GET, POST, PUT, DELETE, OPTIONS")
+  resHeaders.set("access-control-allow-methods", "DELETE, GET, PATCH, POST, PUT")
   resHeaders.set("access-control-allow-headers", "Content-Type, Authorization")
 
   const user: User | null = null
