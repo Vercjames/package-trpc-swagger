@@ -26,6 +26,6 @@ export {
   restHandler as GET,
   restHandler as PATCH,
   restHandler as POST,
-  restHandler as PUT,
+  restHandler as PUT
 }
 

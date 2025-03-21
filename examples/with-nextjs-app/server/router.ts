@@ -30,7 +30,7 @@ export const createContext = async ({ req, resHeaders }: FetchCreateContextFnOpt
   const requestId = uuid()
   resHeaders.set("x-request-id", requestId)
   resHeaders.set("access-control-allow-origin", "*")
-  resHeaders.set("access-control-allow-methods", "GET, POST, PUT, DELETE, OPTIONS")
+  resHeaders.set("access-control-allow-methods", "DELETE, GET, PATCH, POST, PUT")
   resHeaders.set("access-control-allow-headers", "Content-Type, Authorization")
 
   const user: User | null = null
