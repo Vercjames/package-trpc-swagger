@@ -5,38 +5,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cdc7d8e-31a8-477b-98ec-777f5812dd05" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/apps/web/next-env.d.ts" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs/app/api/[...rest]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs/app/api/openapi/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs/app/api/trpc/[trpc]/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs/app/globals.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs/public/.gitkeep" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs/server/database.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs/server/openapi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs/server/router.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/index.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/swagger-adapters/express.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/swagger-adapters/next.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/swagger-generators/generateOpenApiDocument.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/LICENSE" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/apps/web/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/apps/web/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/examples/with-nextjs/app/favicon.ico" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/globals.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/examples/with-nextjs/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/examples/with-nextjs/app/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/examples/with-nextjs/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/public/file.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/public/globe.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/public/next.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/public/vercel.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/public/window.svg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/default.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/default.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/edge.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/edge.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/index-browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/index.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/libquery_engine-darwin-arm64.dylib.node" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/edge-esm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/edge.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/index-browser.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/index-browser.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/library.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/library.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/react-native.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/runtime/wasm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/schema.prisma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/wasm.d.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/generated/client/wasm.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/prisma/schema.prisma" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/src/client.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/src/seed.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/database/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/turbo.json" beforeDir="false" afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,7 +57,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "trpc-11",
-    "last_opened_file_path": "/Users/vercjames/Forgery/package-trpc-swagger/apps",
+    "last_opened_file_path": "/Users/vercjames/Forgery/package-trpc-swagger/packages/package-trpc-swagger/swagger-adapters",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -72,8 +69,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/apps" />
-      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/packages/package-trpc-swagger/swagger-adapters" />
+      <recent name="$PROJECT_DIR$/examples/with-nextjs" />
+      <recent name="$PROJECT_DIR$/examples/with-nextjs/app" />
+      <recent name="$PROJECT_DIR$/packages/package-trpc-swagger" />
+      <recent name="$PROJECT_DIR$/resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/package-trpc-swagger" />
+      <recent name="$PROJECT_DIR$/examples/with-nextjs/app" />
+      <recent name="$PROJECT_DIR$/examples/with-nextjs" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -90,7 +95,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742583531568</updated>
-      <workItem from="1742583532657" duration="391000" />
+      <workItem from="1742583532657" duration="3359000" />
     </task>
     <servers />
   </component>

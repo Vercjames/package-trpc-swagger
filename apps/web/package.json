@@ -4,8 +4,9 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "next dev",
+    "start": "next dev",
     "build": "next build",
-    "start": "next start",
+    "launch": "next start",
     "lint": "eslint . --max-warnings 0"
   },
   "dependencies": {
