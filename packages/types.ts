@@ -1,4 +1,4 @@
-import { AnyTRPCProcedure, AnyTRPCRouter, TRPCProcedureType } from "@trpc/server"
+import { AnyTRPCProcedure, AnyTRPCRouter } from "@trpc/server"
 import { TRPC_ERROR_CODE_KEY } from "@trpc/server/rpc"
 import { OpenAPIV3 } from "openapi-types"
 import { ZodIssue } from "zod"
