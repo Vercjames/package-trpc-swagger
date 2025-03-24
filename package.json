@@ -1,7 +1,7 @@
 {
   "name": "trpc-swagger",
   "license": "MIT",
-  "version": "2.0.0-rc.2",
+  "version": "2.0.0-rc.3",
   "description": "tRPC Swagger Wrapper",
   "author": "https://github.com/vercjames",
   "homepage": "https://github.com/vercjames/package-trpc-swagger",
