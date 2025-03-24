@@ -10,7 +10,7 @@
 </div>
 
 
-## **[Swagger](https://swagger.io/specification/) intigration for [tRPC](https://trpc.io/)** 
+## **[Swagger](https://swagger.io/specification/) integration for [tRPC](https://trpc.io/)** 
 
 - Easy REST endpoints for your tRPC procedures.
 - Perfect for incremental adoption.
