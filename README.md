@@ -26,7 +26,7 @@ PRs Are welcome
 for those looking for tRPC v10 - please use version ^1.2.8
 
 ## TRPC v11
-for those looking for tRPC v11 - please use version ^2.0.0-rc.1
+for those looking for tRPC v11 - please use version ^2.0.0
 
 
 ## Local Examples

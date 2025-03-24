@@ -1,13 +1,14 @@
 {
   "name": "trpc-swagger",
   "license": "MIT",
-  "version": "2.0.0-rc.3",
+  "version": "2.0.0",
   "description": "tRPC Swagger Wrapper",
   "author": "https://github.com/vercjames",
   "homepage": "https://github.com/vercjames/package-trpc-swagger",
   "bugs": "https://github.com/vercjames/package-trpc-swagger/issues",
   "main": "build/index.js",
   "types": "build/index.d.ts",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "git+https://github.com/vercjames/package-trpc-swagger.git"
