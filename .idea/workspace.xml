@@ -4,25 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cdc7d8e-31a8-477b-98ec-777f5812dd05" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-generators/errorResponseObject.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-generators/generateSchema.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-generators/getOpenApiPathsObject.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-generators/getParameterObjects.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils/methods.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils/pathings.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils/procedures.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/config-eslint/library.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/config-eslint/library.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/config-eslint/next.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/config-eslint/next.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/config-eslint/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/config-eslint/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/swagger-adapters/express.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-adapters/express.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/swagger-adapters/next.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-adapters/next.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/swagger-generators/generateOpenApiDocument.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-generators/generateOpenApiDocument.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
-    </list>
+    <list default="true" id="1cdc7d8e-31a8-477b-98ec-777f5812dd05" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -45,7 +27,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "git-widget-placeholder": "trpc-11",
-    "last_opened_file_path": "/Users/vercjames/Forgery/package-trpc-swagger/packages/package-trpc-swagger/trpc-swagger/swagger-generators",
+    "last_opened_file_path": "/Users/vercjames/Forgery/package-trpc-swagger/packages/package-trpc-swagger",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -57,11 +39,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/packages/package-trpc-swagger" />
       <recent name="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-generators" />
       <recent name="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils" />
       <recent name="$PROJECT_DIR$/packages/package-trpc-swagger/swagger-adapters" />
       <recent name="$PROJECT_DIR$/examples/with-nextjs" />
-      <recent name="$PROJECT_DIR$/examples/with-nextjs/app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/package-trpc-swagger/package" />
@@ -84,7 +66,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1742583531568</updated>
-      <workItem from="1742583532657" duration="14417000" />
+      <workItem from="1742583532657" duration="15897000" />
     </task>
     <servers />
   </component>
