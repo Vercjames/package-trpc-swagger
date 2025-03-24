@@ -21,6 +21,14 @@ The original repo [trpc-openapi](https://github.com/James/trpc-openapi) no longe
 The goal of this fork is to add more control for error responses, support more frameworks, and support the new procedure types in @trpc v11.x.x.
 PRs Are welcome
 
+
+## TRPC v10
+for those looking for tRPC v10 - please use version ^1.2.8
+
+## TRPC v11
+for those looking for tRPC v11 - please use version ^2.0.0
+
+
 ## Local Examples
 If you've pulled the repo. you can run any of the example projects by first running these 2 commands:
 ```

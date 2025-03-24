@@ -513,7 +513,7 @@ describe("fetch adapter", () => {
         .meta({ openapi: { method: "GET", path: "/echo" } })
         .input(z.object({ payload: z.string() }))
         .output(z.object({ payload: z.string(), context: z.undefined() }))
-        .query(({ input, ctx }) => ({ payload: input.payload, context: ctx }))
+        .query(({ input }) => ({ payload: input.payload }))
     })
 
     const req = new Request("https://localhost:3000/echo?payload=James", {
@@ -1309,7 +1309,7 @@ describe("fetch adapter", () => {
     const res = await createFetchHandlerCaller({
       router: appRouter,
       endpoint: "/",
-      req
+      req,
     })
 
     const body = await res.json()

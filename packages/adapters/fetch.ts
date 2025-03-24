@@ -6,8 +6,9 @@ import { IncomingMessage, ServerResponse } from "http"
 // =================================================================================================
 // =================================================================================================
 import { HTTPBaseHandlerOptions } from "@trpc/server/dist/http"
+import { NodeHTTPHandlerOptions, NodeHTTPRequest, NodeHTTPResponse } from "@trpc/server/dist/adapters/node-http"
 import { OpenApiRouter } from "../types"
-import { CreateOpenApiNodeHttpHandlerOptions, createOpenApiNodeHttpHandler } from "./node-http/core"
+import { createOpenApiNodeHttpHandler } from "./node-http/core"
 
 // Application Sectional || Define Export Type
 // =================================================================================================
@@ -16,18 +17,10 @@ import { CreateOpenApiNodeHttpHandlerOptions, createOpenApiNodeHttpHandler } fro
 /**
  * Temporary wrapper type for tRPC v11 compatibility
  */
-export type FetchHandlerOptionsWrapper<T extends OpenApiRouter> = FetchCreateContextOption<T & {
-  getErrorShape: (...args: any[]) => any;
-  createCaller: (...args: any[]) => any;
-}> & HTTPBaseHandlerOptions<T & {
-  getErrorShape: (...args: any[]) => any;
-  createCaller: (...args: any[]) => any;
-}, Request>;
-
 export type CreateOpenApiFetchHandlerOptions<
   TRouter extends OpenApiRouter
 > = Omit<
-  FetchHandlerOptionsWrapper<TRouter>,
+  FetchCreateContextOption<TRouter> & HTTPBaseHandlerOptions<TRouter, Request> & NodeHTTPHandlerOptions<TRouter, NodeHTTPRequest, NodeHTTPResponse>,
   "batching"
 > & {
   req: Request;
@@ -138,17 +131,29 @@ export const createOpenApiFetchHandler = async <TRouter extends OpenApiRouter>(
 
   const createContext = () => {
     if (opts.createContext) {
-      return opts.createContext({ req: opts.req, resHeaders })
+      return opts.createContext({
+        req: opts.req,
+        resHeaders,
+        info: {
+          accept: "application/jsonl",
+          type: "unknown",
+          isBatchCall: false,
+          calls: [],
+          connectionParams: null,
+          signal: new AbortController().signal,
+          url
+        }
+      })
     }
     return () => ({})
   }
 
   const openApiHttpHandler = createOpenApiNodeHttpHandler({
-    router: opts.router,
+    router: { ...opts.router, createContext },
     createContext,
-    onError: opts.onError,
-    responseMeta: opts.responseMeta
-  } as CreateOpenApiNodeHttpHandlerOptions<TRouter, any, any>)
+    responseMeta: opts.responseMeta,
+    onError: opts.onError
+  })
 
   return new Promise<Response>((resolve) => {
     let statusCode: number | undefined

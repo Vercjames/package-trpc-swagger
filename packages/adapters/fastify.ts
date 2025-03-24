@@ -1,4 +1,4 @@
-import { AnyRouter } from "@trpc/server"
+import { AnyTRPCRouter } from "@trpc/server"
 import { FastifyInstance } from "fastify"
 
 // Application Sectional || Define Imports
@@ -18,7 +18,7 @@ export type CreateOpenApiFastifyPluginOptions<TRouter extends OpenApiRouter> =
 // Application Sectional || Define Export Handler
 // =================================================================================================
 // =================================================================================================
-export function fastifyTRPCOpenApiPlugin<TRouter extends AnyRouter>(
+export function fastifyTRPCOpenApiPlugin<TRouter extends AnyTRPCRouter>(
   fastify: FastifyInstance,
   opts: CreateOpenApiFastifyPluginOptions<TRouter>,
   done: (err?: Error) => void

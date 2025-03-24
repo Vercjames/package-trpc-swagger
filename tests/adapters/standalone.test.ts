@@ -544,7 +544,7 @@ describe("standalone adapter", () => {
       echo: t.procedure
         .meta({ openapi: { method: "GET", path: "/echo" } })
         .input(z.object({ payload: z.string() }))
-        .output(z.object({ payload: z.string(), context: z.undefined() }))
+        .output(z.object({ payload: z.string(), context: z.object({}).optional() }))
         .query(({ input, ctx }) => ({ payload: input.payload, context: ctx }))
     })
 
