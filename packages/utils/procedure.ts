@@ -39,6 +39,10 @@ export const forEachOpenApiProcedure = (
   }) => void
 ) => {
   for (const [path, procedure] of Object.entries(procedureRecord)) {
+    // VERC: Skip routes that lack meta({}) in their definitions. Used primarily for .subscription()
+    if (!procedure._def.meta) {
+      return
+    }
     const { openapi } = procedure._def.meta
     if (openapi && openapi.enabled !== false) {
       const type = getProcedureType(procedure)
