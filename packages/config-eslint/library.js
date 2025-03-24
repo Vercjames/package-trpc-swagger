@@ -4,8 +4,14 @@ const project = resolve(process.cwd(), "tsconfig.json");
 
 /** @type {import("eslint").Linter.Config} */
 module.exports = {
-  extends: ["eslint:recommended", "prettier", "turbo"],
-  plugins: ["only-warn"],
+  extends: [
+    "eslint:recommended",
+    "turbo",
+    "airbnb"
+  ],
+  plugins: [
+    "import-newlines"
+  ],
   globals: {
     React: true,
     JSX: true,
@@ -21,14 +27,21 @@ module.exports = {
     },
   },
   ignorePatterns: [
-    // Ignore dotfiles
     ".*.js",
-    "node_modules/",
+    "out/",
     "dist/",
+    "build/",
+    "node_modules/",
   ],
   overrides: [
     {
       files: ["*.js?(x)", "*.ts?(x)"],
     },
   ],
+  rules: {
+    "no-var": ["error"],
+    "no-tabs": ["error"],
+    "comma-spacing": ["error"],
+    "semi": ["error", "never"],
+  }
 };

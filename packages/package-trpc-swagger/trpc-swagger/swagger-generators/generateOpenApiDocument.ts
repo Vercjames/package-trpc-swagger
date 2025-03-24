@@ -1,12 +1,11 @@
 import { OpenAPIV3 } from "openapi-types"
-
+import { AnyTRPCRouter } from "@trpc/server";
 
 // Application Sectional || Define Imports
 // =======================================================================================
 // =======================================================================================
-// import { OpenApiRouter } from "../types"
-// import { getOpenApiPathsObject } from "./paths"
-// import { errorResponseObject } from "./schema"
+import { getOpenApiPathsObject } from "./getOpenApiPathsObject"
+import { errorResponseObject } from "./errorResponseObject"
 
 
 // Application Component || Define Variables
@@ -17,10 +16,7 @@ export const openApiVersion = "3.0.3"
 // Application Component || Define Exports
 // =======================================================================================
 // =======================================================================================
-export const generateOpenApiDocument = (
-  appRouter: OpenApiRouter,
-  opts: GenerateOpenApiDocumentOptions
-): OpenAPIV3.Document => {
+export const generateOpenApiDocument = (appRouter: AnyTRPCRouter, opts: generateOpenApiDocumentProps): OpenAPIV3.Document => {
   const securitySchemes = opts.securitySchemes || {
     Authorization: {
       type: "http",
@@ -82,7 +78,7 @@ export const generateOpenApiDocument = (
 // Application Component || Define Typologies
 // =======================================================================================
 // =======================================================================================
-export type OpenApiTag = {
+export type TOpenApiTag = {
   name: string;
   description?: string;
   externalDocs?: {
@@ -91,14 +87,14 @@ export type OpenApiTag = {
   };
 };
 
-export type GenerateOpenApiDocumentOptions = {
+export type generateOpenApiDocumentProps = {
   title: string;
   description?: string;
   version: string;
   baseUrl: string;
   docsUrl?: string;
   termsURL?: string;
-  tags?: (string | OpenApiTag)[];
+  tags?: (string | TOpenApiTag)[];
   securitySchemes?: OpenAPIV3.ComponentsObject["securitySchemes"];
   contact?: {
     email: string;
