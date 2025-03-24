@@ -1,8 +1,13 @@
 import { TRPCError } from "@trpc/server"
 import { NodeHTTPRequest } from "@trpc/server/dist/adapters/node-http"
 import parse from "co-body"
+import { IncomingMessage } from "http"
 
-export const getQuery = (req: NodeHTTPRequest, url: URL): Record<string, string> => {
+type ExtendedNodeHTTPRequest = NodeHTTPRequest & {
+  query?: Record<string, string[]>
+}
+
+export const getQuery = (req: ExtendedNodeHTTPRequest, url: URL): Record<string, string> => {
   const query: Record<string, string> = {}
 
   if (!req.query) {
@@ -36,7 +41,7 @@ export const getQuery = (req: NodeHTTPRequest, url: URL): Record<string, string>
 }
 
 const BODY_100_KB = 100000
-export const getBody = async (req: NodeHTTPRequest, maxBodySize = BODY_100_KB): Promise<any> => {
+export const getBody = async (req: ExtendedNodeHTTPRequest, maxBodySize = BODY_100_KB): Promise<any> => {
   if ("body" in req) {
     return req.body
   }
@@ -46,7 +51,7 @@ export const getBody = async (req: NodeHTTPRequest, maxBodySize = BODY_100_KB): 
   const contentType = req.headers["content-type"]
   if (contentType === "application/json" || contentType === "application/x-www-form-urlencoded") {
     try {
-      const { raw, parsed } = await parse(req, {
+      const { raw, parsed } = await parse(req as IncomingMessage, {
         limit: maxBodySize,
         strict: false,
         returnRawBody: true
