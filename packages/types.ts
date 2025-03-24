@@ -1,9 +1,7 @@
+import { AnyTRPCProcedure, AnyTRPCRouter, TRPCProcedureType } from "@trpc/server"
 import { TRPC_ERROR_CODE_KEY } from "@trpc/server/rpc"
 import { OpenAPIV3 } from "openapi-types"
 import { ZodIssue } from "zod"
-import { Procedure, ProcedureParams, Router } from "@trpc/server"
-import type { RouterDef } from "@trpc/server/src/core/router"
-import type { RootConfig } from "@trpc/server/dist/core/internals/config"
 
 export type OpenApiMethod = "GET" | "POST" | "PATCH" | "PUT" | "DELETE";
 export type TRPCMeta = Record<string, unknown>;
@@ -34,38 +32,11 @@ export type OpenApiMeta<TMeta = TRPCMeta> = TMeta & {
   };
 };
 
-export type OpenApiProcedure<TMeta = TRPCMeta> = Procedure<
-  "query" | "mutation",
-  ProcedureParams<
-    RootConfig<{
-      transformer: any;
-      errorShape: any;
-      ctx: any;
-      meta: OpenApiMeta<TMeta>;
-    }>,
-    any,
-    any,
-    any,
-    any,
-    any,
-    OpenApiMeta<TMeta>
-  >
->;
+export type OpenApiProcedure = AnyTRPCProcedure
 
-export type OpenApiProcedureRecord<TMeta = TRPCMeta> = Record<string, OpenApiProcedure<TMeta>>;
+export type OpenApiProcedureRecord = Record<string, any>;
 
-export type OpenApiRouter<TMeta = TRPCMeta> = Omit<Router<
-  RouterDef<
-    RootConfig<{
-      transformer: any;
-      errorShape: any;
-      ctx: any;
-      meta: OpenApiMeta<TMeta>;
-    }>,
-    any,
-    any
-  >
->, "getErrorShape" | "createCaller">
+export type OpenApiRouter = AnyTRPCRouter
 
 export type OpenApiSuccessResponse<D = any> = D;
 

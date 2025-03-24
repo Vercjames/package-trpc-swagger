@@ -1,6 +1,6 @@
 import z from "zod"
 import { inferAsyncReturnType, initTRPC } from "@trpc/server"
-import { CreateAWSLambdaContextOptions, UNKNOWN_PAYLOAD_FORMAT_VERSION_ERROR_MESSAGE } from "@trpc/server/adapters/aws-lambda"
+import { CreateAWSLambdaContextOptions } from "@trpc/server/adapters/aws-lambda"
 import { APIGatewayProxyEvent, APIGatewayProxyEventV2 } from "aws-lambda"
 
 // Application Sectional || Define Imports
@@ -76,7 +76,7 @@ describe("v1", () => {
         },
         resource: "/hello"
       }),
-      ctx
+      ctx,
     )
     const body = JSON.parse(rawBody)
 
@@ -265,7 +265,7 @@ describe("v1", () => {
       "content-type": "application/json"
     })
     expect(body).toEqual({
-      message: UNKNOWN_PAYLOAD_FORMAT_VERSION_ERROR_MESSAGE,
+      message: "Internal server error",
       code: "INTERNAL_SERVER_ERROR"
     })
   })
@@ -485,7 +485,7 @@ describe("v2", () => {
       "content-type": "application/json"
     })
     expect(body).toEqual({
-      message: UNKNOWN_PAYLOAD_FORMAT_VERSION_ERROR_MESSAGE,
+      message: "Internal server error",
       code: "INTERNAL_SERVER_ERROR"
     })
   })

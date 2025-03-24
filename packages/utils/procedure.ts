@@ -1,4 +1,4 @@
-import { ProcedureType } from "@trpc/server"
+import { AnyTRPCProcedure, ProcedureType } from "@trpc/server"
 import { AnyZodObject, z } from "zod"
 
 // Application Sectional || Define Imports
@@ -16,7 +16,8 @@ const mergeInputs = (inputParsers: AnyZodObject[]): AnyZodObject => {
 }
 
 // `inputParser` & `outputParser` are private so this is a hack to access it
-export const getInputOutputParsers = (procedure: OpenApiProcedure) => {
+export const getInputOutputParsers = (procedure: AnyTRPCProcedure) => {
+  // @ts-ignore
   const { inputs, output } = procedure._def
   return {
     inputParser: inputs.length >= 2 ? mergeInputs(inputs as AnyZodObject[]) : inputs[0],
@@ -25,11 +26,7 @@ export const getInputOutputParsers = (procedure: OpenApiProcedure) => {
 }
 
 const getProcedureType = (procedure: OpenApiProcedure): ProcedureType => {
-  if ("query" in procedure._def && procedure._def.query) return "query"
-  if ("mutation" in procedure._def && procedure._def.mutation) return "mutation"
-  if ("subscription" in procedure._def && procedure._def.subscription) return "subscription"
-  if ("type" in procedure._def && typeof procedure._def.type === "string" && ["query", "mutation", "subscription"].includes(procedure._def.type)) return procedure._def.type as ProcedureType
-  throw new Error("Unknown procedure type")
+  return procedure._def.type
 }
 
 export const forEachOpenApiProcedure = (
@@ -42,7 +39,7 @@ export const forEachOpenApiProcedure = (
   }) => void
 ) => {
   for (const [path, procedure] of Object.entries(procedureRecord)) {
-    const { openapi } = procedure._def.meta ?? {}
+    const { openapi } = procedure._def.meta
     if (openapi && openapi.enabled !== false) {
       const type = getProcedureType(procedure)
       callback({ path, type, procedure, openapi })
