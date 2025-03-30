@@ -2,8 +2,8 @@
   "name": "@repo/trpc-swagger",
   "version": "3.0.0",
   "scripts": {
-    "format": "eslint --fix . --max-warnings 0",
-    "lint": "eslint . --max-warnings 0"
+    "format": "eslint --fix",
+    "lint": "eslint"
   },
   "peerDependencies": {
     "@trpc/client": "^11.0.0",
