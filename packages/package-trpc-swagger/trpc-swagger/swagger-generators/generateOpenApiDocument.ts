@@ -1,16 +1,16 @@
-import { OpenAPIV3 } from 'openapi-types'
-import { AnyTRPCRouter } from '@trpc/server'
+import { OpenAPIV3 } from "openapi-types"
+import { AnyTRPCRouter } from "@trpc/server"
 
 // Application Sectional || Define Imports
 // =======================================================================================
 // =======================================================================================
-import { getOpenApiPathsObject } from './getOpenApiPathsObject'
-import { errorResponseObject } from './errorResponseObject'
+import { getOpenApiPathsObject } from "./getOpenApiPathsObject"
+import { errorResponseObject } from "./errorResponseObject"
 
 // Application Component || Define Variables
 // =======================================================================================
 // =======================================================================================
-export const openApiVersion = '3.0.3'
+export const openApiVersion = "3.0.3"
 
 // Application Component || Define Exports
 // =======================================================================================
@@ -18,8 +18,8 @@ export const openApiVersion = '3.0.3'
 export const generateOpenApiDocument = (appRouter: AnyTRPCRouter, opts: generateOpenApiDocumentProps): OpenAPIV3.Document => {
   const securitySchemes = opts.securitySchemes || {
     Authorization: {
-      type: 'http',
-      scheme: 'bearer',
+      type: "http",
+      scheme: "bearer",
     },
   }
 
@@ -50,7 +50,7 @@ export const generateOpenApiDocument = (appRouter: AnyTRPCRouter, opts: generate
         error: errorResponseObject,
       },
     },
-    tags: opts.tags?.map((tag) => (typeof tag === 'string'
+    tags: opts.tags?.map((tag) => (typeof tag === "string"
       ? { name: tag } // Legacy support for string[]
       : {
         name: tag.name,
@@ -94,7 +94,7 @@ export type generateOpenApiDocumentProps = {
   docsUrl?: string;
   termsURL?: string;
   tags?: (string | TOpenApiTag)[];
-  securitySchemes?: OpenAPIV3.ComponentsObject['securitySchemes'];
+  securitySchemes?: OpenAPIV3.ComponentsObject["securitySchemes"];
   contact?: {
     email: string;
   };

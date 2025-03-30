@@ -2,10 +2,15 @@
  ** =================================================================================== */
 /** @type {import("eslint").Linter.Config} ============================================ */
 module.exports = {
-  extends: ["@repo/eslint-config/base.js"],
-  parser: "@typescript-eslint/parser",
-  parserOptions: {
-    project: true,
+  extends: [
+    "@repo/eslint-config/base.js",
+    require.resolve("@vercel/style-guide/eslint/next"),
+  ],
+  globals: {
+    React: true,
+    JSX: true,
+  },
+  env: {
+    node: true,
   },
 }
-

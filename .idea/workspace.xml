@@ -5,30 +5,24 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1cdc7d8e-31a8-477b-98ec-777f5812dd05" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/api/[...rest]/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/api/openapi/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/api/trpc/[trpc]/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/favicon.ico" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/globals.scss" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/layout.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/eslint.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/next.config.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/postcss.config.mjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/public/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/testings/.gitkeep" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/server/database.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/server/openapi.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/server/router.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/tsconfig.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/config-eslint/library.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/config-eslint/base.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs-app/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/examples/with-nextjs-pages/.eslintrc.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/config-eslint/nextjs.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs-app/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/examples/with-nextjs-app/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs-app/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs-pages/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/examples/with-nextjs-pages/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs-pages/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/config-eslint/next.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/config-eslint/package.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/config-eslint/base.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/config-eslint/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/config-eslint/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/.eslintrc.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils/pathings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils/pathings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-generators/generateOpenApiDocument.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-generators/generateOpenApiDocument.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/types.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils/methods.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils/methods.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/turbo.json" beforeDir="false" afterPath="$PROJECT_DIR$/turbo.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -45,6 +39,9 @@
     <dismissed value="$PROJECT_DIR$/packages/config-eslint/package.json" />
     <dismissed value="$PROJECT_DIR$/packages/package-trpc-swagger/package.json" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
 }</component>
@@ -53,29 +50,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "trpc-11",
-    "last_opened_file_path": "/Users/vercjames/Forgery/package-trpc-swagger/packages/package-trpc-swagger",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "yarn",
-    "ts.external.directory.path": "/Users/vercjames/Forgery/package-trpc-swagger/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;trpc-11&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/vercjames/Forgery/package-trpc-swagger/packages/package-trpc-swagger&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/Users/vercjames/Forgery/package-trpc-swagger/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/package-trpc-swagger" />
+      <recent name="$PROJECT_DIR$/examples/with-nextjs-pages" />
+      <recent name="$PROJECT_DIR$/examples/with-nextjs-app" />
       <recent name="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/swagger-generators" />
       <recent name="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils" />
-      <recent name="$PROJECT_DIR$/packages/package-trpc-swagger/swagger-adapters" />
-      <recent name="$PROJECT_DIR$/examples/with-nextjs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/packages/package-trpc-swagger/package" />
@@ -87,10 +85,11 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-d159365566ee-JavaScript-WS-251.23774.114" />
+        <option value="bundled-js-predefined-d6986cc7102b-1632447f56bf-JavaScript-WS-243.26053.12" />
       </set>
     </attachedChunks>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="1cdc7d8e-31a8-477b-98ec-777f5812dd05" name="Changes" comment="" />
@@ -99,6 +98,7 @@
       <option name="presentableId" value="Default" />
       <updated>1742583531568</updated>
       <workItem from="1742583532657" duration="15897000" />
+      <workItem from="1743368595143" duration="4052000" />
     </task>
     <servers />
   </component>
