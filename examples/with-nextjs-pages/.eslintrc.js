@@ -1,4 +1,4 @@
-/** Application Structure || Define Exports
+/** Application Structure || Define Modules
  ** =================================================================================== */
 /** @type {import("eslint").Linter.Config} ============================================ */
 module.exports = {

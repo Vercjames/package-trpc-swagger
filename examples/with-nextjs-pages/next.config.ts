@@ -1,8 +1,13 @@
-import type { NextConfig } from "next";
+import type { NextConfig } from "next"
 
+// Application Structure || Define Configs
+// =======================================================================================
+// =======================================================================================
 const nextConfig: NextConfig = {
   /* config options here */
-  reactStrictMode: true,
-};
+}
 
-export default nextConfig;
+// Application Structure || Define Exports
+// =======================================================================================
+// =======================================================================================
+export default nextConfig
