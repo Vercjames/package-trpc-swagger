@@ -1,4 +1,4 @@
-![trpc-swagger](resources/trpc-swagger-readme.png)
+![trpc-swagger](assets/trpc-swagger-readme.png)
 
 <div align="center">
   <h1>trpc-swagger</h1>
