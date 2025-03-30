@@ -4,7 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1cdc7d8e-31a8-477b-98ec-777f5812dd05" name="Changes" comment="" />
+    <list default="true" id="1cdc7d8e-31a8-477b-98ec-777f5812dd05" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/api/[...rest]/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/api/openapi/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/api/trpc/[trpc]/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/globals.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/layout.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/app/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/eslint.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/next.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/package-lock.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/postcss.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/public/.gitkeep" beforeDir="false" afterPath="$PROJECT_DIR$/testings/.gitkeep" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/server/database.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/server/openapi.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/server/router.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/examples/with-nextjs/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/config-eslint/library.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/config-eslint/base.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/config-eslint/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/packages/config-eslint/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/.eslintrc.js" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/.eslintrc.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils/pathings.ts" beforeDir="false" afterPath="$PROJECT_DIR$/packages/package-trpc-swagger/trpc-swagger/utils/pathings.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -12,6 +38,12 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/apps/web/package.json" />
+    <dismissed value="$PROJECT_DIR$/package.json" />
+    <dismissed value="$PROJECT_DIR$/packages/config-eslint/package.json" />
+    <dismissed value="$PROJECT_DIR$/packages/package-trpc-swagger/package.json" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -33,7 +65,7 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "yarn",
-    "ts.external.directory.path": "/Users/vercjames/Forgery/package-trpc-swagger/apps/web/node_modules/typescript/lib",
+    "ts.external.directory.path": "/Users/vercjames/Forgery/package-trpc-swagger/node_modules/typescript/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
