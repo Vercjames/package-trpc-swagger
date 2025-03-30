@@ -1,8 +1,8 @@
-import { TOpenApiMethod} from "../types"
+import { TOpenApiMethod } from "../types"
 
 // Application Sectional || Define Exports
 // =======================================================================================
 // =======================================================================================
-export const acceptsRequestBody = (method: TOpenApiMethod) => {
+export const shouldIncludeRequestBody =  (method: TOpenApiMethod): boolean => {
   return !(method === "GET" || method === "DELETE")
 }

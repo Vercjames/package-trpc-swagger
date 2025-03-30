@@ -7,7 +7,9 @@ import { StandardSchemaV1 } from "@standard-schema/spec"
 // =======================================================================================
 // =======================================================================================
 import { TOpenApiContent } from "../types"
-import { instanceofZodType, instanceofZodTypeCoercible, instanceofZodTypeLikeString, instanceofZodTypeLikeVoid, instanceofZodTypeObject, instanceofZodTypeOptional, unwrapZodType, zodSupportsCoerce } from "../utils/zod"
+import {
+  instanceofZodType, instanceofZodTypeCoercible, instanceofZodTypeLikeString, instanceofZodTypeLikeVoid, instanceofZodTypeObject, instanceofZodTypeOptional, unwrapZodType, zodSupportsCoerce,
+} from "../utils/zod"
 
 export const errorResponseObject: OpenAPIV3.ResponseObject = {
   description: "Error response",
@@ -17,9 +19,9 @@ export const errorResponseObject: OpenAPIV3.ResponseObject = {
         z.object({
           message: z.string(),
           code: z.string(),
-          issues: z.array(z.object({ message: z.string() })).optional()
-        })
-      )
-    }
-  }
+          issues: z.array(z.object({ message: z.string() })).optional(),
+        }),
+      ),
+    },
+  },
 }

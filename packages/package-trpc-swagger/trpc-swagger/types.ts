@@ -1,10 +1,10 @@
-import { OpenAPIV3 } from "openapi-types"
-import { TRPCProcedureType, AnyTRPCProcedure, AnyTRPCRouter } from "@trpc/server"
+import { OpenAPIV3 } from 'openapi-types'
+import { TRPCProcedureType, AnyTRPCProcedure, AnyTRPCRouter } from '@trpc/server'
 
 // Application Component || Define Typologies
 // =======================================================================================
 // =======================================================================================
-export type TOpenApiMethod = "GET" | "POST" | "PATCH" | "PUT" | "DELETE";
+export type TOpenApiMethod = 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
 
 export type TOpenApiContent =
   | 'application/json'

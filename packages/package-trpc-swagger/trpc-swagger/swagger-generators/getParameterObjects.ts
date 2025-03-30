@@ -1,20 +1,22 @@
-import { z } from "zod"
-import { TRPCError } from "@trpc/server"
-import { OpenAPIV3 } from "openapi-types"
-import { StandardSchemaV1 } from "@standard-schema/spec"
+import { z } from 'zod'
+import { TRPCError } from '@trpc/server'
+import { OpenAPIV3 } from 'openapi-types'
+import { StandardSchemaV1 } from '@standard-schema/spec'
 
 // Application Sectional || Define Imports
 // =================================================================================================
-import { TOpenApiContent } from "../types"
-import { instanceofZodType, instanceofZodTypeCoercible, instanceofZodTypeLikeString, instanceofZodTypeLikeVoid, instanceofZodTypeObject, instanceofZodTypeOptional, unwrapZodType, zodSupportsCoerce } from "../utils/zod"
+import { TOpenApiContent } from '../types'
+import {
+  instanceofZodType, instanceofZodTypeCoercible, instanceofZodTypeLikeString, instanceofZodTypeLikeVoid, instanceofZodTypeObject, instanceofZodTypeOptional, unwrapZodType, zodSupportsCoerce,
+} from '../utils/zod'
 
 // Application Sectional || Define Helper Functions
 // =================================================================================================
 const zodSchemaToOpenApiSchemaObject = (zodSchema: z.ZodType): OpenAPIV3.SchemaObject => {
-  if (!("~standard" in zodSchema)) {
-    throw new Error("Schema does not comply with StandardSchemaV1 interface")
+  if (!('~standard' in zodSchema)) {
+    throw new Error('Schema does not comply with StandardSchemaV1 interface')
   }
-  return zodSchema["~standard"].types as OpenAPIV3.SchemaObject;
+  return zodSchema['~standard'].types as OpenAPIV3.SchemaObject
 }
 
 // Application Sectional || Define Exports
@@ -22,13 +24,13 @@ const zodSchemaToOpenApiSchemaObject = (zodSchema: z.ZodType): OpenAPIV3.SchemaO
 export const getParameterObjects = (
   schema: unknown,
   pathParameters: string[],
-  inType: "all" | "path" | "query",
-  example: Record<string, any> | undefined
+  inType: 'all' | 'path' | 'query',
+  example: Record<string, any> | undefined,
 ): OpenAPIV3.ParameterObject[] | undefined => {
   if (!instanceofZodType(schema)) {
     throw new TRPCError({
-      message: "Input parser expects a Zod validator",
-      code: "INTERNAL_SERVER_ERROR"
+      message: 'Input parser expects a Zod validator',
+      code: 'INTERNAL_SERVER_ERROR',
     })
   }
 
@@ -41,8 +43,8 @@ export const getParameterObjects = (
 
   if (!instanceofZodTypeObject(unwrappedSchema)) {
     throw new TRPCError({
-      message: "Input parser must be a ZodObject",
-      code: "INTERNAL_SERVER_ERROR"
+      message: 'Input parser must be a ZodObject',
+      code: 'INTERNAL_SERVER_ERROR',
     })
   }
 
@@ -53,7 +55,7 @@ export const getParameterObjects = (
     if (!shapeKeys.includes(pathParameter)) {
       throw new TRPCError({
         message: `Input parser expects key from path: "${pathParameter}"`,
-        code: "INTERNAL_SERVER_ERROR"
+        code: 'INTERNAL_SERVER_ERROR',
       })
     }
   }
@@ -61,9 +63,9 @@ export const getParameterObjects = (
   return shapeKeys
     .filter((shapeKey) => {
       const isPathParameter = pathParameters.includes(shapeKey)
-      if (inType === "path") {
+      if (inType === 'path') {
         return isPathParameter
-      } if (inType === "query") {
+      } if (inType === 'query') {
         return !isPathParameter
       }
       return true
@@ -78,13 +80,13 @@ export const getParameterObjects = (
           if (!instanceofZodTypeCoercible(shapeSchema)) {
             throw new TRPCError({
               message: `Input parser key: "${shapeKey}" must be ZodString, ZodNumber, ZodBoolean, ZodBigInt or ZodDate`,
-              code: "INTERNAL_SERVER_ERROR"
+              code: 'INTERNAL_SERVER_ERROR',
             })
           }
         } else {
           throw new TRPCError({
             message: `Input parser key: "${shapeKey}" must be ZodString`,
-            code: "INTERNAL_SERVER_ERROR"
+            code: 'INTERNAL_SERVER_ERROR',
           })
         }
       }
@@ -93,7 +95,7 @@ export const getParameterObjects = (
         if (isPathParameter) {
           throw new TRPCError({
             message: `Path parameter: "${shapeKey}" must not be optional`,
-            code: "INTERNAL_SERVER_ERROR"
+            code: 'INTERNAL_SERVER_ERROR',
           })
         }
         shapeSchema = shapeSchema.unwrap()
@@ -103,13 +105,11 @@ export const getParameterObjects = (
 
       return {
         name: shapeKey,
-        in: isPathParameter ? "path" : "query",
+        in: isPathParameter ? 'path' : 'query',
         required: isPathParameter || (isRequired && isShapeRequired),
         schema: openApiSchemaObject,
         description,
-        example: example?.[shapeKey]
+        example: example?.[shapeKey],
       }
     })
 }
-
-

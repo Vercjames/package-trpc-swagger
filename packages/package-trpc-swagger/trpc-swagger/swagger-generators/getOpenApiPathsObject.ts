@@ -1,60 +1,64 @@
-import { TRPCError } from "@trpc/server"
-import { OpenAPIV3 } from "openapi-types"
+import { TRPCError } from '@trpc/server'
+import { OpenAPIV3 } from 'openapi-types'
 
 // Application Sectional || Define Imports
 // =======================================================================================
 // =======================================================================================
-import { OpenApiProcedureRecord, OpenApiRouter } from "../types"
-import { acceptsRequestBody } from "../utils/methods"
-import { getPathParameters, normalizePath } from "../utils/pathings"
-import { forEachOpenApiProcedure, getInputOutputParsers } from "../utils/procedures"
-import { getParameterObjects, getRequestBodyObject, getResponsesObject } from "./schema"
+import { OpenApiProcedureRecord, OpenApiRouter } from '../types'
+import { acceptsRequestBody } from '../utils/methods'
+import { getPathParameters, normalizePath } from '../utils/pathings'
+import { forEachOpenApiProcedure, getInputOutputParsers } from '../utils/procedures'
+import { getParameterObjects, getRequestBodyObject, getResponsesObject } from './schema'
 
 // Application Sectional || Define Exports
 // =======================================================================================
 // =======================================================================================
 export const getOpenApiPathsObject = (
   appRouter: OpenApiRouter,
-  securitySchemeNames: string[]
+  securitySchemeNames: string[],
 ): OpenAPIV3.PathsObject => {
   const pathsObject: OpenAPIV3.PathsObject = {}
   const procedures = appRouter._def.procedures as OpenApiProcedureRecord
 
-  forEachOpenApiProcedure(procedures, ({ path: procedurePath, type, procedure, openapi }) => {
+  forEachOpenApiProcedure(procedures, ({
+    path: procedurePath, type, procedure, openapi,
+  }) => {
     const procedureName = `${type}.${procedurePath}`
 
     try {
-      if (type === "subscription") {
+      if (type === 'subscription') {
         console.warn(`[${procedureName}] - Subscriptions are not supported by OpenAPI v3`)
         return
       }
 
-      const { method, protect, summary, description, tags, headers } = openapi
+      const {
+        method, protect, summary, description, tags, headers,
+      } = openapi
 
       const path = normalizePath(openapi.path)
       const pathParameters = getPathParameters(path)
-      const headerParameters = headers?.map((header) => ({ ...header, in: "header" })) || []
+      const headerParameters = headers?.map((header) => ({ ...header, in: 'header' })) || []
 
       const httpMethod = OpenAPIV3.HttpMethods[method]
       if (!httpMethod) {
         throw new TRPCError({
-          message: "Method must be GET, POST, PATCH, PUT or DELETE",
-          code: "INTERNAL_SERVER_ERROR"
+          message: 'Method must be GET, POST, PATCH, PUT or DELETE',
+          code: 'INTERNAL_SERVER_ERROR',
         })
       }
 
       if (pathsObject[path]?.[httpMethod]) {
         throw new TRPCError({
           message: `Duplicate procedure defined for route ${method} ${path}`,
-          code: "INTERNAL_SERVER_ERROR"
+          code: 'INTERNAL_SERVER_ERROR',
         })
       }
 
-      const contentTypes = openapi.contentTypes || ["application/json"]
+      const contentTypes = openapi.contentTypes || ['application/json']
       if (contentTypes.length === 0) {
         throw new TRPCError({
-          message: "At least one content type must be specified",
-          code: "INTERNAL_SERVER_ERROR"
+          message: 'At least one content type must be specified',
+          code: 'INTERNAL_SERVER_ERROR',
         })
       }
 
@@ -63,7 +67,7 @@ export const getOpenApiPathsObject = (
       pathsObject[path] = {
         ...pathsObject[path],
         [httpMethod]: {
-          operationId: procedurePath.replace(/\./g, "-"),
+          operationId: procedurePath.replace(/\./g, '-'),
           summary,
           description,
           tags,
@@ -74,17 +78,17 @@ export const getOpenApiPathsObject = (
                 inputParser,
                 pathParameters,
                 contentTypes,
-                openapi.example?.request
+                openapi.example?.request,
               ),
               parameters: [
                 ...headerParameters,
                 ...(getParameterObjects(
                   inputParser,
                   pathParameters,
-                  "path",
-                  openapi.example?.request
-                ) || [])
-              ]
+                  'path',
+                  openapi.example?.request,
+                ) || []),
+              ],
             }
             : {
               requestBody: undefined,
@@ -93,14 +97,14 @@ export const getOpenApiPathsObject = (
                 ...(getParameterObjects(
                   inputParser,
                   pathParameters,
-                  "all",
-                  openapi.example?.request
-                ) || [])
-              ]
+                  'all',
+                  openapi.example?.request,
+                ) || []),
+              ],
             }),
           responses: getResponsesObject(outputParser, openapi.example?.response, openapi.responseHeaders),
-          ...(openapi.deprecated ? { deprecated: openapi.deprecated } : {})
-        }
+          ...(openapi.deprecated ? { deprecated: openapi.deprecated } : {}),
+        },
       }
     } catch (error: any) {
       // eslint-disable-next-line @typescript-eslint/restrict-template-expressions
