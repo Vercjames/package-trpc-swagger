@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "files": [
-    "base.js",
+    "eslint.js",
     "nextjs.js"
   ],
   "devDependencies": {

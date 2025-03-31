@@ -1,4 +1,4 @@
-import { openApiVersion, generateOpenApiDocument, generateOpenApiDocumentProps } from "./swagger-generators/generateOpenApiDocument"
+import { openApiVersion, generateOpenApiDocument } from "./swagger-generators/generateOpenApiDocument"
 
 // Application Component || Define Exports
 // =======================================================================================
@@ -6,5 +6,4 @@ import { openApiVersion, generateOpenApiDocument, generateOpenApiDocumentProps }
 export {
   openApiVersion,
   generateOpenApiDocument,
-  // generateOpenApiDocumentProps,
 }

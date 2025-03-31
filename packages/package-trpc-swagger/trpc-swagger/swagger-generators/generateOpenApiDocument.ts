@@ -4,8 +4,8 @@ import { AnyTRPCRouter } from "@trpc/server"
 // Application Sectional || Define Imports
 // =======================================================================================
 // =======================================================================================
-import { getOpenApiPathsObject } from "./getOpenApiPathsObject"
-import { errorResponseObject } from "./errorResponseObject"
+// import { getOpenApiPathsObject } from "./getOpenApiPathsObject"
+// import { errorResponseObject } from "./errorResponseObject"
 
 // Application Component || Define Variables
 // =======================================================================================
@@ -15,8 +15,11 @@ export const openApiVersion = "3.0.3"
 // Application Component || Define Exports
 // =======================================================================================
 // =======================================================================================
-export const generateOpenApiDocument = (appRouter: AnyTRPCRouter, opts: generateOpenApiDocumentProps): OpenAPIV3.Document => {
-  const securitySchemes = opts.securitySchemes || {
+export const generateOpenApiDocument = ({ router, options }: {
+  router?: AnyTRPCRouter;
+  options: generateOpenApiDocumentOptions
+}): OpenAPIV3.Document => {
+  const securitySchemes = options.securitySchemes || {
     Authorization: {
       type: "http",
       scheme: "bearer",
@@ -26,31 +29,32 @@ export const generateOpenApiDocument = (appRouter: AnyTRPCRouter, opts: generate
   return {
     openapi: openApiVersion,
     info: {
-      title: opts.title,
-      description: opts.description,
-      version: opts.version,
-      termsOfService: opts.termsURL,
-      contact: opts.contact ? { email: opts.contact.email } : undefined,
-      license: opts.license
+      title: options.title,
+      description: options.description,
+      version: options.version,
+      termsOfService: options.termsURL,
+      contact: options.contact ? { email: options.contact.email } : undefined,
+      license: options.license
         ? {
-          name: opts.license.name,
-          url: opts.license.url,
+          name: options.license.name,
+          url: options.license.url,
         }
         : undefined,
     },
     servers: [
       {
-        url: opts.baseUrl,
+        url: options.baseUrl,
       },
     ],
-    paths: getOpenApiPathsObject(appRouter, Object.keys(securitySchemes)),
+    paths: {},
+    // paths: router ? getOpenApiPathsObject(router, Object.keys(securitySchemes)) : undefined,
     components: {
       securitySchemes,
       responses: {
-        error: errorResponseObject,
+        // error: errorResponseObject,
       },
     },
-    tags: opts.tags?.map((tag) => (typeof tag === "string"
+    tags: options.tags?.map((tag) => (typeof tag === "string"
       ? { name: tag } // Legacy support for string[]
       : {
         name: tag.name,
@@ -63,13 +67,13 @@ export const generateOpenApiDocument = (appRouter: AnyTRPCRouter, opts: generate
           : undefined,
       })),
     // eslint-disable-next-line no-nested-ternary
-    externalDocs: opts.externalDocs
+    externalDocs: options.externalDocs
       ? {
-        description: opts.externalDocs.description,
-        url: opts.externalDocs.url,
+        description: options.externalDocs.description,
+        url: options.externalDocs.url,
       }
-      : opts.docsUrl
-        ? { url: opts.docsUrl }
+      : options.docsUrl
+        ? { url: options.docsUrl }
         : undefined,
   }
 }
@@ -86,7 +90,7 @@ export type TOpenApiTag = {
   };
 };
 
-export type generateOpenApiDocumentProps = {
+export type generateOpenApiDocumentOptions = {
   title: string;
   description?: string;
   version: string;

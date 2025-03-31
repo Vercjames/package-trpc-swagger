@@ -40,9 +40,12 @@ module.exports = {
     // NOTE: "_" function variables use this unused placeholder
     "no-unused-vars": ["warn", { "argsIgnorePattern": "^_", "varsIgnorePattern": "^_" }],
     "import/prefer-default-export": ["off"],
+    // NOTE: Typologies are often placed at the bottom of the file
+    "no-use-before-define": ["off"],
     "object-curly-newline": ["off"],
     "no-underscore-dangle": ["off"],
     "import/extensions": ["off"],
     "arrow-body-style": ["off"],
+    "max-len": ["off"]
   }
 };
