@@ -1,5 +1,6 @@
 {
   "name": "trpc-swagger",
+  "license": "MIT",
   "private": true,
   "workspaces": [
     "apps/*",
