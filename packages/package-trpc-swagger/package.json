@@ -2,9 +2,9 @@
   "name": "@repo/trpc-swagger",
   "version": "3.0.0",
   "scripts": {
-    "dev": "tsup trpc-swagger/index.ts --format esm,cjs --watch --dts --external react",
-    "start": "tsup trpc-swagger/index.ts --format esm,cjs --watch --dts --external react",
-    "build": "tsup trpc-swagger/index.ts --format esm,cjs --dts --external react",
+    "dev": "tsup trpc-swagger/index.ts --format esm,cjs --watch --dts --external @trpc/client --external @trpc/server --external zod",
+    "start": "tsup trpc-swagger/index.ts --format esm,cjs --watch --dts --external @trpc/client --external @trpc/server --external zod",
+    "build": "tsup trpc-swagger/index.ts --format esm,cjs --dts --external @trpc/client --external @trpc/server --external zod",
     "format": "eslint --fix",
     "lint": "eslint"
   },
@@ -14,7 +14,6 @@
     "zod": "^3.14.4"
   },
   "dependencies": {
-    "@asteasolutions/zod-to-openapi": "^7.3.0",
     "@standard-schema/spec": "^1.0.0",
     "chalk-scripts": "1.2.10",
     "openapi-types": "^12.1.3"
@@ -25,7 +24,7 @@
     "@trpc/client": "11.0.0",
     "@trpc/server": "11.0.0",
     "eslint": "^8.57.1",
-    "tsup": "^8.4.0",
+    "tsup": "^8.0.2",
     "typescript": "5.5.4"
   }
 }
