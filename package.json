@@ -16,12 +16,11 @@
     "format": "turbo run format",
     "lint": "turbo run lint"
   },
-  "devDependencies": {
-    "tsx": "4.19.1",
-    "turbo": "^2.4.4"
-  },
   "engines": {
     "node": ">=20"
   },
-  "packageManager": "yarn@1.22.19"
+  "devDependencies": {
+    "tsx": "4.19.1",
+    "turbo": "^2.4.4"
+  }
 }

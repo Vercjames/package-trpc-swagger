@@ -1,4 +1,4 @@
 {
   "extends": "@repo/typescript-config/tsconfig.json",
-  "include": ["trpc-swagger/**/*.ts", "trpc-swagger/**/*.tsx"],
+  "include": ["./trpc-swagger/**/*.ts"]
 }

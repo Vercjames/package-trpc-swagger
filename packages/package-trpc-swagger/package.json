@@ -2,10 +2,11 @@
   "name": "@repo/trpc-swagger",
   "version": "2.1.0",
   "license": "MIT",
+  "main": "trpc-swagger/index.ts",
   "scripts": {
-    "dev": "tsup trpc-swagger/index.ts --format esm,cjs --watch --dts --external @trpc/client --external @trpc/server --external zod",
-    "start": "tsup trpc-swagger/index.ts --format esm,cjs --watch --dts --external @trpc/client --external @trpc/server --external zod",
-    "build": "tsup trpc-swagger/index.ts --format esm,cjs --dts --external @trpc/client --external @trpc/server --external zod",
+    "dev": "tsup trpc-swagger/index.ts --format esm,cjs --watch --dts",
+    "start": "tsup trpc-swagger/index.ts --format esm,cjs --watch --dts",
+    "build": "tsup trpc-swagger/index.ts --format esm,cjs --dts",
     "format": "eslint --fix",
     "lint": "eslint"
   },
