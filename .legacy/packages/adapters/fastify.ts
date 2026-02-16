@@ -1,5 +1,5 @@
 import { AnyRouter } from "@trpc/server"
-import { FastifyInstance } from "legacy/packages/adapters/fastify"
+import { FastifyInstance } from "@/.legacy/packages/adapters/fastify"
 
 // Application Sectional || Define Imports
 // =================================================================================================

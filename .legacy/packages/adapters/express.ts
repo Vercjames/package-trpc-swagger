@@ -1,4 +1,4 @@
-import { Request, Response } from "legacy/packages/adapters/express"
+import { Request, Response } from "@/.legacy/packages/adapters/express"
 
 // Application Sectional || Define Imports
 // =================================================================================================

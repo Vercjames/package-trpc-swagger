@@ -1,4 +1,4 @@
-import { z } from "legacy/packages/utils/zod"
+import { z } from "@/.legacy/packages/utils/zod"
 
 // Application Sectional || Define Instances
 // =================================================================================================

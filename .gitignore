@@ -1,0 +1,219 @@
+## See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+## =======================================================================================
+## =======================================================================================
+env-builder.json
+
+
+## Project Ignores || Env Variables
+## =======================================================================================
+## =======================================================================================
+.env*
+
+## Project Ignores || Build Excludes
+## =======================================================================================
+## =======================================================================================
+out
+.out
+out/
+.out/
+
+dist
+.dist
+dist/
+.dist/
+
+build
+.build
+build/
+.build/
+
+output
+.output
+output/
+.output/
+
+
+## Project Ignores || Package Directories
+## =======================================================================================
+## =======================================================================================
+typings
+typings/
+coverage
+coverage/
+certificates
+certificates/
+node_modules
+node_modules/
+jspm_packages
+jspm_packages/
+
+
+## Project Ignores || Bundle Excludes
+## =======================================================================================
+## =======================================================================================
+.next
+.next/
+.nuxt
+.nuxt/
+.nitro
+.nitro/
+.claude
+.claude/
+.vercel
+.vercel/
+.serverless
+.serverless/
+.turbo
+.turbo/
+
+
+## Project Ignores || Editor Cache
+## =======================================================================================
+## =======================================================================================
+.pnp
+.pnp.js
+.npm
+.yarn
+.idea
+.init
+.swc
+.fleet
+.grunt
+.vscode
+.parcel-cache
+.eslintcache
+.stylelintcache
+
+
+## Project Ignores || Generated Files
+## =======================================================================================
+## =======================================================================================
+._*
+.Trashes
+.DS_Store
+.Spotlight-V100
+Thumbs.db
+dist-ssr
+
+
+## Project Ignores || Diagnostic Reports
+## =======================================================================================
+## =======================================================================================
+report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
+
+
+## Project Ignores || Log Files
+## =======================================================================================
+## =======================================================================================
+logs
+*.log
+
+npm.log*
+.npm.log*
+.npm-debug.log*
+npm-debug.log*
+.npm-error.log*
+npm-error.log*
+
+yarn.log*
+.yarn.log*
+yarn-debug.log*
+.yarn-debug.log*
+.yarn-error.log*
+yarn-error.log*
+
+pnpm.log*
+.pnpm.log*
+pnpm-debug.log*
+.pnpm-debug.log*
+pnpm-error.log*
+.pnpm-error.log*
+
+lerna.log*
+.lerna.log*
+lerna-debug.log*
+.lerna-debug.log*
+lerna-error.log*
+.lerna-error.log*
+
+bun.log*
+.bun.log*
+bun-debug.log*
+.bun-debug.log*
+bun-error.log*
+.bun-error.log*
+
+storybook.log*
+.storybook.log*
+storybook-debug.log*
+.storybook-debug.log*
+storybook-error.log*
+.storybook-error.log*
+
+
+## Project Ignores || Runtime data
+## =======================================================================================
+## =======================================================================================
+pids
+*.pid
+*.seed
+*.pid.lock
+*.pem
+
+
+## Project Ignores || Typescript Files
+## =======================================================================================
+## =======================================================================================
+*.tsbuildinfo
+next-env.d.ts
+
+
+## Project Ignores || Lint & Cache Files
+## =======================================================================================
+## =======================================================================================
+.cache
+eslintcache
+stylelintcache
+
+## Project Ignores || Expo Files
+## =======================================================================================
+## =======================================================================================
+.expo
+.expo/
+expo-env.d.ts
+.metro-health-check*
+web-build
+web-build/
+android
+android/
+ios
+ios/
+
+## Project Ignores || Native Files
+## =======================================================================================
+## =======================================================================================
+.kotlin
+*.mobileprovision
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+
+
+## Project Ignores || VS Code Recommended Exceptions
+## =======================================================================================
+## =======================================================================================
+!.vscode/extensions.json
+
+
+## Project Ignores || Erroneous files
+## =======================================================================================
+## =======================================================================================
+*.ntvs*
+*.njsproj
+*.tgz
+*.sln
+*.sw?
+.secrets.com
+

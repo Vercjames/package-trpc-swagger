@@ -1,7 +1,7 @@
 import { TRPCError } from "@trpc/server"
 import { APIGatewayEvent, AWSLambdaCreateContextFn, AWSLambdaOptions, UNKNOWN_PAYLOAD_FORMAT_VERSION_ERROR_MESSAGE, getHTTPMethod, getPath, isPayloadV1, isPayloadV2, transformHeaders } from "@trpc/server/adapters/aws-lambda"
 import type { NodeHTTPRequest } from "@trpc/server/dist/adapters/node-http"
-import type { Context as APIGWContext } from "legacy/packages/adapters/aws-lambda"
+import type { Context as APIGWContext } from "@/.legacy/packages/adapters/aws-lambda"
 import { EventEmitter } from "events"
 import type { RequestMethod } from "node-mocks-http"
 import { createRequest, createResponse } from "node-mocks-http"
