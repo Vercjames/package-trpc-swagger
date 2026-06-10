@@ -439,6 +439,59 @@ Please see [full typings here](packages/adapters/node-http/core.ts).
 
 _Still using tRPC v9? See our [`.interop()`](examples/with-interop) example._
 
+## Publishing to npm
+
+> Maintainers only. The package is published from the repo root as [`trpc-swagger`](https://www.npmjs.com/package/trpc-swagger).
+
+**1. Authenticate with npm**
+
+You must be logged in as a maintainer of the `trpc-swagger` package.
+
+```bash
+npm whoami   # confirm you're logged in — otherwise run: npm login
+```
+
+**2. Bump the version**
+
+Update `version` in `package.json` following [semver](https://semver.org/) (e.g. `2.0.1` → `2.0.2`).
+
+**3. Temporarily disable `private`**
+
+The root `package.json` sets `"private": true` because Yarn workspaces (the `examples/*` projects) require it. npm refuses to publish private packages, so flip it just for the release:
+
+```jsonc
+// package.json
+"private": false
+```
+
+**4. Preview the tarball**
+
+The `prepublishOnly` script automatically runs `rimraf build && yarn build`, so the dist is rebuilt on publish. Preview exactly what will ship first:
+
+```bash
+npm publish --dry-run
+```
+
+Only `build/`, `packages/`, `package.json`, `LICENSE`, and `README.md` are included — the `examples/` are excluded (see `.npmignore`).
+
+**5. Publish**
+
+```bash
+npm publish
+```
+
+`trpc-swagger` is unscoped, so it publishes publicly by default.
+
+**6. Restore `"private": true`**
+
+Set it back so Yarn workspaces keep working locally, then commit the bump and tag the release:
+
+```bash
+git commit -am "vX.Y.Z"
+git tag vX.Y.Z
+git push --follow-tags
+```
+
 ## License
 
 Distributed under the MIT License. See LICENSE for more information.
