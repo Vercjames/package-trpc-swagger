@@ -10,10 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
-    "@trpc/server": "^10.27.1",
+    "@trpc/server": "^11.17.0",
     "jsonwebtoken": "^9.0.2",
-    "trpc-nuxt": "^0.10.3",
-    "uuid": "^9.0.1",
+    "trpc-nuxt": "^0.11.0",
+    "uuid": "^11.1.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {

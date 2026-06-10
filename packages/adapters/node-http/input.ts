@@ -1,5 +1,5 @@
 import { TRPCError } from "@trpc/server"
-import { NodeHTTPRequest } from "@trpc/server/dist/adapters/node-http"
+import { NodeHTTPRequest } from "@trpc/server/adapters/node-http"
 import parse from "co-body"
 import { IncomingMessage } from "http"
 

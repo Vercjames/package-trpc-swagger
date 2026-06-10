@@ -1,5 +1,6 @@
 import { TRPCError, initTRPC } from "@trpc/server"
-import { APIGatewayEvent, CreateAWSLambdaContextOptions } from "@trpc/server/adapters/aws-lambda"
+import { CreateAWSLambdaContextOptions } from "@trpc/server/adapters/aws-lambda"
+import { APIGatewayProxyEvent } from "aws-lambda"
 import jwt from "jsonwebtoken"
 import { OpenApiMeta } from "trpc-swagger"
 import { v4 as uuid } from "uuid"
@@ -30,7 +31,7 @@ export const createContext = async ({
   event,
   context
 }: // eslint-disable-next-line @typescript-eslint/require-await
-CreateAWSLambdaContextOptions<APIGatewayEvent>): Promise<Context> => {
+CreateAWSLambdaContextOptions<APIGatewayProxyEvent>): Promise<Context> => {
   const requestId = uuid()
 
   let user: User | null = null
