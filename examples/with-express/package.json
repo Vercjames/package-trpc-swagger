@@ -6,12 +6,12 @@
     "dev": "ts-node-dev --respawn --transpile-only --exit-child ./src/index.ts"
   },
   "dependencies": {
-    "@trpc/server": "^10.45.2",
+    "@trpc/server": "^11.17.0",
     "cors": "^2.8.5",
     "express": "^4.19.2",
     "jsonwebtoken": "^9.0.2",
     "swagger-ui-express": "^4.6.3",
-    "uuid": "^9.0.1",
+    "uuid": "^11.1.1",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -20,7 +20,6 @@
     "@types/jsonwebtoken": "^9.0.6",
     "@types/node": "^20.12.4",
     "@types/swagger-ui-express": "^4.1.6",
-    "@types/uuid": "^9.0.8",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.4.3"

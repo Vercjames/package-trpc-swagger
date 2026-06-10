@@ -24,7 +24,6 @@ export const getInputOutputParsers = (
   inputParser: AnyZodObject | undefined
   outputParser: AnyZodObject | undefined
 } => {
-  // @ts-expect-error The types seems to be incorrect
   const inputs = procedure._def.inputs as AnyZodObject[]
   // @ts-expect-error The types seems to be incorrect
   const output = procedure._def.output as AnyZodObject

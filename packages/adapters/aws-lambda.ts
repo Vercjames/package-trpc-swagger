@@ -1,6 +1,6 @@
 import { getErrorShape, TRPCError } from "@trpc/server"
 import { AWSLambdaCreateContextFn } from "@trpc/server/adapters/aws-lambda"
-import type { NodeHTTPRequest } from "@trpc/server/dist/adapters/node-http"
+import type { NodeHTTPRequest } from "@trpc/server/adapters/node-http"
 import { EventEmitter } from "events"
 import type { RequestMethod } from "node-mocks-http"
 import { createRequest, createResponse } from "node-mocks-http"

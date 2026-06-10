@@ -5,8 +5,7 @@ import { IncomingMessage, ServerResponse } from "http"
 // Application Sectional || Define Imports
 // =================================================================================================
 // =================================================================================================
-import { HTTPBaseHandlerOptions } from "@trpc/server/dist/http"
-import { NodeHTTPHandlerOptions, NodeHTTPRequest, NodeHTTPResponse } from "@trpc/server/dist/adapters/node-http"
+import { NodeHTTPHandlerOptions, NodeHTTPRequest, NodeHTTPResponse } from "@trpc/server/adapters/node-http"
 import { OpenApiRouter } from "../types"
 import { createOpenApiNodeHttpHandler } from "./node-http/core"
 
@@ -20,9 +19,9 @@ import { createOpenApiNodeHttpHandler } from "./node-http/core"
 export type CreateOpenApiFetchHandlerOptions<
   TRouter extends OpenApiRouter
 > = Omit<
-  FetchCreateContextOption<TRouter> & HTTPBaseHandlerOptions<TRouter, Request> & NodeHTTPHandlerOptions<TRouter, NodeHTTPRequest, NodeHTTPResponse>,
-  "batching"
-> & {
+  NodeHTTPHandlerOptions<TRouter, NodeHTTPRequest, NodeHTTPResponse>,
+  "batching" | "createContext"
+> & FetchCreateContextOption<TRouter> & {
   req: Request;
   endpoint: `/${string}`;
   cors?: {

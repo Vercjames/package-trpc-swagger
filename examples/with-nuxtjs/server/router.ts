@@ -1,11 +1,12 @@
 import { TRPCError, initTRPC } from "@trpc/server"
 import { IncomingMessage, ServerResponse } from "http"
 import jwt from "jsonwebtoken"
-import { OpenApiMeta } from "trpc-swagger"
+import type { OpenApiMeta } from "trpc-swagger"
 import { v4 as uuid } from "uuid"
 import { z } from "zod"
 
-import { Post, User, database } from "./database"
+import { database } from "./database"
+import type { Post, User } from "./database"
 
 const jwtSecret = uuid()
 

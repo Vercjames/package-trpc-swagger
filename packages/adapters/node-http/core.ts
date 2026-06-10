@@ -2,7 +2,7 @@ import {
   NodeHTTPHandlerOptions,
   NodeHTTPRequest,
   NodeHTTPResponse
-} from "@trpc/server/dist/adapters/node-http"
+} from "@trpc/server/adapters/node-http"
 import cloneDeep from "lodash.clonedeep"
 import { ZodError, z } from "zod"
 
