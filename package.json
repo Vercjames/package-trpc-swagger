@@ -7,9 +7,11 @@
     "apps/*"
   ],
   "scripts": {
+    "dev": "yarn workspace trpc-swagger dev",
     "build": "npm run build --workspaces --if-present",
     "format": "eslint --fix .",
     "lint": "eslint .",
+    "with-express": "yarn workspace example-express dev",
     "clean": "rm -rf node_modules packages/*/build packages/*/node_modules apps/*/node_modules apps/*/.next examples/*/node_modules examples/*/.next"
   },
   "devDependencies": {

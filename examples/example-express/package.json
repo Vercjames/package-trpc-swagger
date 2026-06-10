@@ -3,18 +3,16 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "tsx watch src/index.ts",
-    "build": "tsc",
-    "start": "node build/index.js"
+    "dev": "tsx watch src/index.ts"
   },
   "dependencies": {
-    "@trpc/server": "^11.0.0",
-    "express": "^5.1.0",
-    "zod": "^3.25.0"
+    "@trpc/server": "^11.10.0",
+    "express": "^5.2.1",
+    "trpc-swagger": "*"
   },
   "devDependencies": {
-    "@types/express": "^5.0.0",
-    "@types/node": "^22",
-    "tsx": "^4.19.0"
+    "@types/express": "^5.0.6",
+    "@types/node": "^25",
+    "tsx": "^4.21.0"
   }
 }
